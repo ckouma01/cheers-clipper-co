@@ -1,9 +1,21 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import theraponImg from "@/assets/therapon.png";
 import panagiotisImg from "@/assets/panagiotis.png";
 
 const About = () => {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [selectedBarber, setSelectedBarber] = useState("");
+
+  const bookingUrl = "https://therapis27.setmore.com/burn?fbclid=PAZXh0bgNhZW0CMTEAAad6YEREHL9RJqVvUWnHT0If9n7sP1c0-6Duaip9wNJaG8T9ovCfAPFp6JgIDw_aem_mJwRNE8YOzZLeB3FvWobyQ";
+
+  const handleBooking = (barberName: string) => {
+    setSelectedBarber(barberName);
+    setIsBookingOpen(true);
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -40,15 +52,9 @@ const About = () => {
                     variant="hero" 
                     size="lg" 
                     className="w-full"
-                    asChild
+                    onClick={() => handleBooking("Therapon")}
                   >
-                    <a 
-                      href="https://therapis27.setmore.com/burn?fbclid=PAZXh0bgNhZW0CMTEAAad6YEREHL9RJqVvUWnHT0If9n7sP1c0-6Duaip9wNJaG8T9ovCfAPFp6JgIDw_aem_mJwRNE8YOzZLeB3FvWobyQ"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Book with Therapon
-                    </a>
+                    Book with Therapon
                   </Button>
                 </div>
               </CardContent>
@@ -71,15 +77,9 @@ const About = () => {
                     variant="hero" 
                     size="lg" 
                     className="w-full"
-                    asChild
+                    onClick={() => handleBooking("Panagiotis")}
                   >
-                    <a 
-                      href="https://therapis27.setmore.com/burn?fbclid=PAZXh0bgNhZW0CMTEAAad6YEREHL9RJqVvUWnHT0If9n7sP1c0-6Duaip9wNJaG8T9ovCfAPFp6JgIDw_aem_mJwRNE8YOzZLeB3FvWobyQ"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Book with Panagiotis
-                    </a>
+                    Book with Panagiotis
                   </Button>
                 </div>
               </CardContent>
@@ -87,6 +87,22 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      {/* Booking Dialog */}
+      <Dialog open={isBookingOpen} onOpenChange={setIsBookingOpen}>
+        <DialogContent className="max-w-4xl h-[80vh] p-0">
+          <DialogHeader className="p-6 pb-4">
+            <DialogTitle>Book Appointment with {selectedBarber}</DialogTitle>
+          </DialogHeader>
+          <div className="flex-1 overflow-hidden px-6 pb-6">
+            <iframe
+              src={bookingUrl}
+              className="w-full h-full border-0 rounded"
+              title={`Book with ${selectedBarber}`}
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
