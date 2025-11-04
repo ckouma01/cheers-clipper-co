@@ -36,7 +36,7 @@ const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-semibold tracking-wide transition-colors hover:text-accent ${
+                className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-accent hover:scale-105 ${
                   isActive(item.path) ? "text-accent" : "text-foreground"
                 }`}
               >
@@ -63,7 +63,7 @@ const Navigation = () => {
                   key={item.path}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`text-sm font-semibold tracking-wide transition-colors hover:text-accent ${
+                  className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-accent hover:translate-x-2 ${
                     isActive(item.path) ? "text-accent" : "text-foreground"
                   }`}
                 >

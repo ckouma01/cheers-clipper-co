@@ -36,13 +36,13 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* Therapon */}
-            <Card className="border-2 hover:border-accent transition-all overflow-hidden">
+            <Card className="border-2 hover:border-accent transition-all duration-300 overflow-hidden card-hover">
               <CardContent className="p-0">
                 <div className="aspect-square overflow-hidden">
                   <img 
                     src={theraponImg} 
                     alt="Therapon Constantinou - Master Barber" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover image-zoom"
                   />
                 </div>
                 <div className="p-6 space-y-4 text-center">
@@ -51,7 +51,7 @@ const About = () => {
                   <Button 
                     variant="hero" 
                     size="lg" 
-                    className="w-full"
+                    className="w-full button-glow"
                     onClick={() => handleBooking("Therapon")}
                   >
                     Book with Therapon
@@ -61,13 +61,13 @@ const About = () => {
             </Card>
 
             {/* Panagiotis */}
-            <Card className="border-2 hover:border-accent transition-all overflow-hidden">
+            <Card className="border-2 hover:border-accent transition-all duration-300 overflow-hidden card-hover">
               <CardContent className="p-0">
                 <div className="aspect-square overflow-hidden">
                   <img 
                     src={panagiotisImg} 
                     alt="Panagiotis Charalambous - Master Barber" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover image-zoom"
                   />
                 </div>
                 <div className="p-6 space-y-4 text-center">
@@ -76,7 +76,7 @@ const About = () => {
                   <Button 
                     variant="hero" 
                     size="lg" 
-                    className="w-full"
+                    className="w-full button-glow"
                     onClick={() => handleBooking("Panagiotis")}
                   >
                     Book with Panagiotis
