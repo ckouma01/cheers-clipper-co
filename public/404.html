@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <script>
+    // GitHub Pages SPA redirect script
+    // This handles client-side routing by redirecting 404s back to index.html
+    // with the path preserved in the query string
+    const path = window.location.pathname.slice(1);
+    const repo = '/cheers-clipper-co/';
+    if (path && path !== 'index.html') {
+      window.location.replace(repo + '?redirect=' + encodeURIComponent(path));
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>

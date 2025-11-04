@@ -18,7 +18,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.PROD ? '/cheers-clipper-co' : ''}>
         <div className="min-h-screen flex flex-col">
           <Navigation />
           <main className="flex-1">
