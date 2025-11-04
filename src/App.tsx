@@ -12,13 +12,14 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+const USE_HASH_ROUTER = import.meta.env.BASE_URL !== "/";
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      {import.meta.env.PROD ? (
+      {USE_HASH_ROUTER ? (
         <HashRouter>
           <div className="min-h-screen flex flex-col">
             <Navigation />
