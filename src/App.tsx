@@ -18,7 +18,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/cheers-clipper-co">
+      <BrowserRouter>
         <div className="min-h-screen flex flex-col">
           <Navigation />
           <main className="flex-1">
