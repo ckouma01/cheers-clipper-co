@@ -1,227 +1,161 @@
 import { useState } from "react";
-import { Calendar, Clock, User, Phone, Mail, Scissors } from "lucide-react";
+import { Calendar, Scissors } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import theraponImg from "@/assets/therapon.png";
+import panagiotisImg from "@/assets/panagiotis.png";
 
 const BookAppointment = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "",
-    date: "",
-    time: "",
-    notes: "",
-  });
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [selectedBarber, setSelectedBarber] = useState("");
 
-  const services = [
-    "Classic Haircut - $35",
-    "Hot Towel Shave - $40",
-    "Beard Trim & Shape - $25",
-    "Full Service - $65",
-  ];
+  const bookingUrl = "https://therapis27.setmore.com/burn?fbclid=PAZXh0bgNhZW0CMTEAAad6YEREHL9RJqVvUWnHT0If9n7sP1c0-6Duaip9wNJaG8T9ovCfAPFp6JgIDw_aem_mJwRNE8YOzZLeB3FvWobyQ";
 
-  const timeSlots = [
-    "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
-    "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM",
-    "5:00 PM", "6:00 PM", "7:00 PM",
-  ];
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Appointment Requested!",
-      description: "We'll contact you shortly to confirm your booking.",
-    });
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      service: "",
-      date: "",
-      time: "",
-      notes: "",
-    });
+  const handleBooking = (barberName: string) => {
+    setSelectedBarber(barberName);
+    setIsBookingOpen(true);
   };
 
   return (
-    <div className="min-h-screen py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-12 space-y-4">
-            <h1 className="text-5xl font-bold text-foreground">Book an Appointment</h1>
-            <div className="w-24 h-1 bg-accent mx-auto" />
-            <p className="text-lg text-muted-foreground">
-              Schedule your visit to Cheers Barbershop today
-            </p>
+    <div className="min-h-screen bg-background">
+      {/* Hero Header */}
+      <div className="py-16 text-center bg-gradient-to-b from-secondary/30 to-background">
+        <div className="container mx-auto px-4">
+          <div className="inline-flex items-center justify-center gap-3 mb-4">
+            <Scissors className="w-10 h-10 text-accent animate-pulse" />
+            <Calendar className="w-10 h-10 text-accent animate-pulse" style={{ animationDelay: '0.3s' }} />
           </div>
-
-          {/* Booking Form */}
-          <Card className="border-2">
-            <CardHeader>
-              <CardTitle className="text-2xl flex items-center gap-2">
-                <Calendar className="w-6 h-6 text-accent" />
-                Appointment Details
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Personal Information */}
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name" className="flex items-center gap-2">
-                      <User className="w-4 h-4" />
-                      Full Name *
-                    </Label>
-                    <Input
-                      id="name"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="John Doe"
-                    />
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="flex items-center gap-2">
-                        <Mail className="w-4 h-4" />
-                        Email *
-                      </Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        required
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="john@example.com"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="phone" className="flex items-center gap-2">
-                        <Phone className="w-4 h-4" />
-                        Phone Number *
-                      </Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        required
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="(555) 123-4567"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Service Selection */}
-                <div className="space-y-2">
-                  <Label htmlFor="service" className="flex items-center gap-2">
-                    <Scissors className="w-4 h-4" />
-                    Select Service *
-                  </Label>
-                  <Select
-                    value={formData.service}
-                    onValueChange={(value) => setFormData({ ...formData, service: value })}
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Choose a service" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {services.map((service) => (
-                        <SelectItem key={service} value={service}>
-                          {service}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                {/* Date and Time */}
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="date" className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4" />
-                      Preferred Date *
-                    </Label>
-                    <Input
-                      id="date"
-                      type="date"
-                      required
-                      value={formData.date}
-                      onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                      min={new Date().toISOString().split('T')[0]}
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="time" className="flex items-center gap-2">
-                      <Clock className="w-4 h-4" />
-                      Preferred Time *
-                    </Label>
-                    <Select
-                      value={formData.time}
-                      onValueChange={(value) => setFormData({ ...formData, time: value })}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select time" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {timeSlots.map((slot) => (
-                          <SelectItem key={slot} value={slot}>
-                            {slot}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-
-                {/* Additional Notes */}
-                <div className="space-y-2">
-                  <Label htmlFor="notes">Additional Notes</Label>
-                  <Textarea
-                    id="notes"
-                    value={formData.notes}
-                    onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                    placeholder="Any special requests or style preferences?"
-                    rows={4}
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <Button type="submit" variant="hero" size="lg" className="w-full">
-                  Request Appointment
-                </Button>
-
-                <p className="text-sm text-muted-foreground text-center">
-                  * We'll contact you within 24 hours to confirm your appointment
-                </p>
-              </form>
-            </CardContent>
-          </Card>
-
-          {/* Additional Info */}
-          <Card className="mt-8 bg-secondary/30 border-2">
-            <CardContent className="pt-6">
-              <h3 className="text-xl font-bold mb-4 text-foreground">Walk-ins Welcome!</h3>
-              <p className="text-muted-foreground">
-                While we recommend booking in advance to secure your preferred time slot, we're happy 
-                to accommodate walk-in customers whenever possible. Stop by and we'll do our best to 
-                serve you promptly.
-              </p>
-            </CardContent>
-          </Card>
+          <h1 className="text-6xl md:text-7xl font-bold text-foreground mb-4 animate-fade-in">
+            Book Your Cut
+          </h1>
+          <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto mb-6" />
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            Choose your master barber and schedule your appointment
+          </p>
         </div>
       </div>
+
+      {/* Split Barber Selection */}
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+          {/* Therapon Section */}
+          <div 
+            className="group relative overflow-hidden rounded-2xl border-4 border-border hover:border-accent transition-all duration-500 cursor-pointer bg-gradient-to-br from-secondary/50 to-background animate-fade-in"
+            onClick={() => handleBooking("Therapon")}
+            style={{ animationDelay: '0.3s' }}
+          >
+            <div className="aspect-[4/5] overflow-hidden">
+              <img 
+                src={theraponImg} 
+                alt="Therapon Constantinou - Master Barber" 
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+            </div>
+            
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-300" />
+            
+            {/* Content */}
+            <div className="absolute bottom-0 left-0 right-0 p-8 text-center space-y-4">
+              <div className="space-y-2">
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground group-hover:text-accent transition-colors duration-300">
+                  Therapon
+                </h2>
+                <p className="text-lg text-muted-foreground font-semibold tracking-wide">
+                  MASTER BARBER
+                </p>
+              </div>
+              
+              <Button 
+                variant="hero" 
+                size="lg"
+                className="w-full max-w-xs mx-auto text-lg py-6 button-glow group-hover:scale-105 transition-transform duration-300"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleBooking("Therapon");
+                }}
+              >
+                Book with Therapon
+              </Button>
+            </div>
+
+            {/* Corner Accent */}
+            <div className="absolute top-4 right-4 w-16 h-16 border-t-4 border-r-4 border-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </div>
+
+          {/* Panagiotis Section */}
+          <div 
+            className="group relative overflow-hidden rounded-2xl border-4 border-border hover:border-accent transition-all duration-500 cursor-pointer bg-gradient-to-br from-secondary/50 to-background animate-fade-in"
+            onClick={() => handleBooking("Panagiotis")}
+            style={{ animationDelay: '0.5s' }}
+          >
+            <div className="aspect-[4/5] overflow-hidden">
+              <img 
+                src={panagiotisImg} 
+                alt="Panagiotis Charalambous - Master Barber" 
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+            </div>
+            
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-300" />
+            
+            {/* Content */}
+            <div className="absolute bottom-0 left-0 right-0 p-8 text-center space-y-4">
+              <div className="space-y-2">
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground group-hover:text-accent transition-colors duration-300">
+                  Panagiotis
+                </h2>
+                <p className="text-lg text-muted-foreground font-semibold tracking-wide">
+                  MASTER BARBER
+                </p>
+              </div>
+              
+              <Button 
+                variant="hero" 
+                size="lg"
+                className="w-full max-w-xs mx-auto text-lg py-6 button-glow group-hover:scale-105 transition-transform duration-300"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleBooking("Panagiotis");
+                }}
+              >
+                Book with Panagiotis
+              </Button>
+            </div>
+
+            {/* Corner Accent */}
+            <div className="absolute top-4 left-4 w-16 h-16 border-t-4 border-l-4 border-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </div>
+        </div>
+
+        {/* Info Section */}
+        <div className="mt-12 text-center max-w-3xl mx-auto space-y-4 p-8 rounded-xl bg-secondary/20 border-2 border-border animate-fade-in" style={{ animationDelay: '0.7s' }}>
+          <h3 className="text-2xl font-bold text-foreground">Walk-ins Welcome!</h3>
+          <p className="text-muted-foreground text-lg">
+            No appointment? No problem! While booking guarantees your spot, we're always happy to serve walk-in clients whenever possible.
+          </p>
+        </div>
+      </div>
+
+      {/* Booking Dialog */}
+      <Dialog open={isBookingOpen} onOpenChange={setIsBookingOpen}>
+        <DialogContent className="max-w-4xl h-[85vh] p-0 flex flex-col">
+          <DialogHeader className="px-6 pt-6 pb-2 shrink-0">
+            <DialogTitle>Book Appointment with {selectedBarber}</DialogTitle>
+            <DialogDescription className="sr-only">
+              Schedule your appointment with {selectedBarber}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex-1 px-6 pb-6 min-h-0">
+            <iframe
+              src={bookingUrl}
+              className="w-full h-full border-0 rounded"
+              title={`Book with ${selectedBarber}`}
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
