@@ -9,14 +9,14 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 hover:shadow-lg",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground hover:border-accent",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:shadow-md",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg border border-primary/20",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 hover:shadow-lg border border-destructive/20",
+        outline: "border-2 border-input bg-background hover:bg-accent hover:text-accent-foreground hover:border-accent",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:shadow-md border border-secondary/40",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline active:scale-100",
-        hero: "bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg hover:shadow-2xl hover:shadow-accent/50 font-semibold",
-        vintage: "border-2 border-accent text-foreground hover:bg-accent hover:text-accent-foreground hover:shadow-lg hover:shadow-accent/30 font-semibold",
+        hero: "bg-gradient-to-r from-accent via-accent to-accent/90 text-accent-foreground hover:from-accent/90 hover:via-accent hover:to-accent shadow-xl hover:shadow-2xl hover:shadow-accent/60 font-bold border-2 border-accent/30 uppercase tracking-wider",
+        vintage: "border-3 border-accent text-foreground hover:bg-accent hover:text-accent-foreground hover:shadow-xl hover:shadow-accent/40 font-bold uppercase tracking-wide bg-gradient-to-br from-background to-secondary/30",
       },
       size: {
         default: "h-10 px-4 py-2",
