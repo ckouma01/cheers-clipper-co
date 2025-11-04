@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import theraponImg from "@/assets/therapon.png";
 import panagiotisImg from "@/assets/panagiotis.png";
 
@@ -90,11 +90,14 @@ const About = () => {
 
       {/* Booking Dialog */}
       <Dialog open={isBookingOpen} onOpenChange={setIsBookingOpen}>
-        <DialogContent className="max-w-4xl h-[80vh] p-0">
-          <DialogHeader className="p-6 pb-4">
+        <DialogContent className="max-w-4xl h-[85vh] p-0 flex flex-col">
+          <DialogHeader className="px-6 pt-6 pb-2 shrink-0">
             <DialogTitle>Book Appointment with {selectedBarber}</DialogTitle>
+            <DialogDescription className="sr-only">
+              Schedule your appointment with {selectedBarber}
+            </DialogDescription>
           </DialogHeader>
-          <div className="flex-1 overflow-hidden px-6 pb-6">
+          <div className="flex-1 px-6 pb-6 min-h-0">
             <iframe
               src={bookingUrl}
               className="w-full h-full border-0 rounded"
