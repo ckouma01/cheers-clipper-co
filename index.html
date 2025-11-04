@@ -19,6 +19,22 @@
 
   <body>
     <div id="root"></div>
+    <script>
+      // Handle GitHub Pages SPA redirects like /cheers-clipper-co/?redirect=book
+      (function() {
+        try {
+          const params = new URLSearchParams(window.location.search);
+          const redirect = params.get('redirect');
+          if (redirect) {
+            const base = '/cheers-clipper-co';
+            const normalized = base + (redirect.startsWith('/') ? redirect : '/' + redirect);
+            window.history.replaceState(null, '', normalized);
+          }
+        } catch (e) {
+          // no-op
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
