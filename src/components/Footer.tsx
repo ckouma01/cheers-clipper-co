@@ -87,8 +87,19 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm text-primary-foreground/80">
+        <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm text-primary-foreground/80 space-y-2">
           <p>&copy; {new Date().getFullYear()} Cheers Barbershop. All rights reserved.</p>
+          <p>
+            Made and designed by{" "}
+            <a 
+              href="https://koumasweb.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-accent hover:underline font-semibold"
+            >
+              KoumasWeb
+            </a>
+          </p>
         </div>
       </div>
     </footer>
