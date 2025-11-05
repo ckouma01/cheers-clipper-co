@@ -38,6 +38,20 @@ const Home = () => {
       <section className="relative bg-primary text-primary-foreground py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-secondary to-black opacity-95" />
         
+        {/* Logo Background Watermark */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-5">
+          <img 
+            src={logo} 
+            alt="" 
+            className="w-full max-w-4xl h-auto object-contain"
+          />
+        </div>
+        
+        {/* Glowing Gold Effect */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold rounded-full blur-[120px] animate-pulse" />
+        </div>
+        
         {/* Decorative gold lines */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
