@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Scissors, Clock, Award, Users } from "lucide-react";
+import { Scissors, Clock, Award, Users, Sparkles, Droplet, Star, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import logo from "@/assets/cheers-logo.png";
@@ -35,8 +35,23 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-primary text-primary-foreground py-24 md:py-32">
+      <section className="relative bg-primary text-primary-foreground py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary/20 opacity-90" />
+        
+        {/* Floating Icons */}
+        <div className="absolute inset-0 z-0 opacity-10">
+          <Scissors className="absolute top-[15%] left-[10%] w-12 h-12 animate-[float_6s_ease-in-out_infinite]" />
+          <Scissors className="absolute top-[70%] right-[15%] w-16 h-16 animate-[float_8s_ease-in-out_infinite_1s] rotate-45" />
+          <Sparkles className="absolute top-[25%] right-[20%] w-10 h-10 animate-[float_7s_ease-in-out_infinite_2s]" />
+          <Sparkles className="absolute bottom-[20%] left-[15%] w-8 h-8 animate-[float_5s_ease-in-out_infinite_1.5s]" />
+          <Droplet className="absolute top-[40%] left-[8%] w-10 h-10 animate-[float_6.5s_ease-in-out_infinite_0.5s]" />
+          <Droplet className="absolute bottom-[30%] right-[12%] w-12 h-12 animate-[float_7.5s_ease-in-out_infinite_2.5s]" />
+          <Star className="absolute top-[60%] left-[20%] w-8 h-8 animate-[float_5.5s_ease-in-out_infinite_1s]" />
+          <Star className="absolute top-[20%] left-[25%] w-10 h-10 animate-[float_6.8s_ease-in-out_infinite_3s]" />
+          <Zap className="absolute bottom-[40%] right-[8%] w-10 h-10 animate-[float_6.2s_ease-in-out_infinite_0.8s]" />
+          <Award className="absolute top-[50%] right-[25%] w-12 h-12 animate-[float_7.2s_ease-in-out_infinite_2.2s]" />
+        </div>
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <img 
