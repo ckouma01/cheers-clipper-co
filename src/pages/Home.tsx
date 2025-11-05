@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Scissors, Clock, Award, Users, Sparkles, Droplet, Star, Zap } from "lucide-react";
+import { Scissors, Clock, Award, Users, Sparkles, Droplets, Wind, SprayCan } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import logo from "@/assets/cheers-logo.png";
@@ -40,15 +40,16 @@ const Home = () => {
         
         {/* Floating Icons */}
         <div className="absolute inset-0 z-0 opacity-10">
-          <Scissors className="absolute top-[15%] left-[10%] w-12 h-12 animate-[float_6s_ease-in-out_infinite]" />
-          <Scissors className="absolute top-[70%] right-[15%] w-16 h-16 animate-[float_8s_ease-in-out_infinite_1s] rotate-45" />
-          <Sparkles className="absolute top-[25%] right-[20%] w-10 h-10 animate-[float_7s_ease-in-out_infinite_2s]" />
-          <Sparkles className="absolute bottom-[20%] left-[15%] w-8 h-8 animate-[float_5s_ease-in-out_infinite_1.5s]" />
-          <Droplet className="absolute top-[40%] left-[8%] w-10 h-10 animate-[float_6.5s_ease-in-out_infinite_0.5s]" />
-          <Droplet className="absolute bottom-[30%] right-[12%] w-12 h-12 animate-[float_7.5s_ease-in-out_infinite_2.5s]" />
-          <Star className="absolute top-[60%] left-[20%] w-8 h-8 animate-[float_5.5s_ease-in-out_infinite_1s]" />
-          <Star className="absolute top-[20%] left-[25%] w-10 h-10 animate-[float_6.8s_ease-in-out_infinite_3s]" />
-          <Zap className="absolute bottom-[40%] right-[8%] w-10 h-10 animate-[float_6.2s_ease-in-out_infinite_0.8s]" />
+          <Scissors className="absolute top-[15%] left-[10%] w-14 h-14 animate-[float_6s_ease-in-out_infinite]" />
+          <Scissors className="absolute top-[65%] right-[12%] w-16 h-16 animate-[float_8s_ease-in-out_infinite_1s] rotate-45" />
+          <Scissors className="absolute bottom-[25%] left-[18%] w-12 h-12 animate-[float_7s_ease-in-out_infinite_2.5s] -rotate-12" />
+          <SprayCan className="absolute top-[35%] right-[8%] w-12 h-12 animate-[float_7s_ease-in-out_infinite_2s]" />
+          <SprayCan className="absolute bottom-[35%] left-[8%] w-14 h-14 animate-[float_6.5s_ease-in-out_infinite_1.5s] rotate-12" />
+          <Droplets className="absolute top-[25%] left-[22%] w-10 h-10 animate-[float_5.5s_ease-in-out_infinite_0.5s]" />
+          <Droplets className="absolute bottom-[20%] right-[20%] w-12 h-12 animate-[float_6.8s_ease-in-out_infinite_2.8s]" />
+          <Wind className="absolute top-[50%] left-[5%] w-16 h-16 animate-[float_7.5s_ease-in-out_infinite_1.2s]" />
+          <Wind className="absolute top-[20%] right-[25%] w-14 h-14 animate-[float_6.2s_ease-in-out_infinite_3s]" />
+          <Sparkles className="absolute bottom-[40%] right-[5%] w-10 h-10 animate-[float_5.8s_ease-in-out_infinite_0.8s]" />
           <Award className="absolute top-[50%] right-[25%] w-12 h-12 animate-[float_7.2s_ease-in-out_infinite_2.2s]" />
         </div>
 
