@@ -36,8 +36,13 @@ const About = () => {
       </section>
 
       {/* Team Members Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-background relative overflow-hidden">
+        {/* Glowing Gold Effects */}
+        <div className="absolute inset-0 opacity-15 pointer-events-none">
+          <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold rounded-full blur-[120px]" style={{ animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }} />
+          <div className="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold rounded-full blur-[120px]" style={{ animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite 2s' }} />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* Therapon */}
             <Card className="border-2 hover:border-gold transition-all duration-300 overflow-hidden hover:shadow-2xl hover:shadow-gold/20 bg-card">
