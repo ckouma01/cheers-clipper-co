@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/cheers-logo.png";
+import logo from "@/assets/cheers-logo-new.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,16 +18,12 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border shadow-sm">
+    <nav className="sticky top-0 z-50 bg-background/98 backdrop-blur-md border-b border-gold/20 shadow-lg">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Cheers Barbershop" className="h-14 w-14 object-contain" />
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-foreground tracking-tight">CHEERS</h1>
-              <p className="text-xs text-muted-foreground uppercase tracking-wider">Barbershop</p>
-            </div>
+          <Link to="/" className="flex items-center gap-3 group">
+            <img src={logo} alt="Cheers Barbershop" className="h-16 w-auto object-contain group-hover:scale-105 transition-transform" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -36,8 +32,8 @@ const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-accent hover:scale-105 ${
-                  isActive(item.path) ? "text-accent" : "text-foreground"
+                className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:scale-105 ${
+                  isActive(item.path) ? "text-gold" : "text-foreground"
                 }`}
               >
                 {item.name}
@@ -48,7 +44,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-foreground hover:text-accent transition-colors"
+            className="md:hidden p-2 text-foreground hover:text-gold transition-colors"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -56,15 +52,15 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className="md:hidden py-4 border-t border-gold/20">
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-accent hover:translate-x-2 ${
-                    isActive(item.path) ? "text-accent" : "text-foreground"
+                  className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 ${
+                    isActive(item.path) ? "text-gold" : "text-foreground"
                   }`}
                 >
                   {item.name}

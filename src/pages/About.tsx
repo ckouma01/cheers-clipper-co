@@ -19,12 +19,16 @@ const About = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-secondary/30">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 bg-primary text-primary-foreground overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-secondary to-black opacity-95" />
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold rounded-full blur-[100px]" style={{ animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }} />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h1 className="text-5xl font-bold text-foreground">Meet Our Team</h1>
-            <div className="w-24 h-1 bg-accent mx-auto" />
-            <p className="text-xl text-muted-foreground">
+            <h1 className="text-5xl font-serif font-bold text-primary-foreground">Meet Our <span className="text-gold">Team</span></h1>
+            <div className="w-24 h-1 bg-gold mx-auto" />
+            <p className="text-xl text-primary-foreground/90 font-light">
               Expert barbers dedicated to making you look and feel your best
             </p>
           </div>
@@ -36,7 +40,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* Therapon */}
-            <Card className="border-2 hover:border-accent transition-all duration-300 overflow-hidden card-hover">
+            <Card className="border-2 hover:border-gold transition-all duration-300 overflow-hidden hover:shadow-2xl hover:shadow-gold/20 bg-card">
               <CardContent className="p-0">
                 <div className="aspect-square overflow-hidden">
                   <img 
@@ -46,12 +50,12 @@ const About = () => {
                   />
                 </div>
                 <div className="p-6 space-y-4 text-center">
-                  <h3 className="text-2xl font-bold text-foreground">Therapon Constantinou</h3>
-                  <p className="text-muted-foreground">Master Barber</p>
+                  <h3 className="text-2xl font-serif font-bold text-foreground">Therapon Constantinou</h3>
+                  <p className="text-muted-foreground font-light">Master Barber</p>
                   <Button 
                     variant="hero" 
                     size="lg" 
-                    className="w-full button-glow"
+                    className="w-full"
                     onClick={() => handleBooking("Therapon")}
                   >
                     Book with Therapon
@@ -61,7 +65,7 @@ const About = () => {
             </Card>
 
             {/* Panagiotis */}
-            <Card className="border-2 hover:border-accent transition-all duration-300 overflow-hidden card-hover">
+            <Card className="border-2 hover:border-gold transition-all duration-300 overflow-hidden hover:shadow-2xl hover:shadow-gold/20 bg-card">
               <CardContent className="p-0">
                 <div className="aspect-square overflow-hidden">
                   <img 
@@ -71,12 +75,12 @@ const About = () => {
                   />
                 </div>
                 <div className="p-6 space-y-4 text-center">
-                  <h3 className="text-2xl font-bold text-foreground">Panagiotis Charalambous</h3>
-                  <p className="text-muted-foreground">Master Barber</p>
+                  <h3 className="text-2xl font-serif font-bold text-foreground">Panagiotis Charalambous</h3>
+                  <p className="text-muted-foreground font-light">Master Barber</p>
                   <Button 
                     variant="hero" 
                     size="lg" 
-                    className="w-full button-glow"
+                    className="w-full"
                     onClick={() => handleBooking("Panagiotis")}
                   >
                     Book with Panagiotis
