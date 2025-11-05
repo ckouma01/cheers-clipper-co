@@ -131,6 +131,20 @@ All colors MUST be HSL.
     }
   }
 
+  @keyframes gold-glow {
+    0%, 100% {
+      text-shadow: 0 0 10px hsl(43 74% 49% / 0.5), 0 0 20px hsl(43 74% 49% / 0.3);
+    }
+    50% {
+      text-shadow: 0 0 20px hsl(43 74% 49% / 0.8), 0 0 30px hsl(43 74% 49% / 0.5), 0 0 40px hsl(43 80% 65% / 0.3);
+    }
+  }
+
+  .gold-glow-text {
+    color: hsl(43 74% 49%);
+    animation: gold-glow 3s ease-in-out infinite;
+  }
+
   .premium-button {
     position: relative;
     display: inline-flex;

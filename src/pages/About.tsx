@@ -57,7 +57,7 @@ const About = () => {
                 </div>
                 <div className="p-6 space-y-4 text-center">
                   <h3 className="text-2xl font-serif font-bold text-foreground">Therapon Constantinou</h3>
-                  <p className="text-muted-foreground font-light">Master Barber</p>
+                  <p className="text-muted-foreground font-light"><span className="gold-glow-text">Master</span> Barber</p>
                   <button 
                     className="premium-button w-full"
                     onClick={() => handleBooking("Therapon")}
@@ -80,7 +80,7 @@ const About = () => {
                 </div>
                 <div className="p-6 space-y-4 text-center">
                   <h3 className="text-2xl font-serif font-bold text-foreground">Panagiotis Charalambous</h3>
-                  <p className="text-muted-foreground font-light">Master Barber</p>
+                  <p className="text-muted-foreground font-light"><span className="gold-glow-text">Master</span> Barber</p>
                   <button 
                     className="premium-button w-full"
                     onClick={() => handleBooking("Panagiotis")}
