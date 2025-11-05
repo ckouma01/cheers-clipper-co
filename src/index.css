@@ -122,13 +122,60 @@ All colors MUST be HSL.
     font-family: 'Playfair Display', serif;
   }
   
-  @keyframes border-spin {
+  @keyframes rotate-border {
     0% {
       transform: rotate(0deg);
     }
     100% {
       transform: rotate(360deg);
     }
+  }
+
+  .premium-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 28px;
+    background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 0 20px rgba(184, 134, 11, 0.2);
+    z-index: 1;
+  }
+
+  .premium-button::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, hsl(43 74% 49%), hsl(43 80% 65%), hsl(43 60% 35%), hsl(43 74% 49%));
+    animation: rotate-border 4s linear infinite;
+    z-index: -2;
+  }
+
+  .premium-button::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background: #0a0a0a;
+    border-radius: 10px;
+    z-index: -1;
+  }
+
+  .premium-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(184, 134, 11, 0.4);
   }
 }
 

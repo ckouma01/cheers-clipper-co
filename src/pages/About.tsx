@@ -58,17 +58,12 @@ const About = () => {
                 <div className="p-6 space-y-4 text-center">
                   <h3 className="text-2xl font-serif font-bold text-foreground">Therapon Constantinou</h3>
                   <p className="text-muted-foreground font-light">Master Barber</p>
-                  <div className="relative group">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-gold via-gold-light to-gold rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-[border-spin_3s_linear_infinite]"></div>
-                    <Button 
-                      variant="default" 
-                      size="lg" 
-                      className="relative w-full bg-black text-white border-0 hover:bg-black/90"
-                      onClick={() => handleBooking("Therapon")}
-                    >
-                      Book with Therapon
-                    </Button>
-                  </div>
+                  <button 
+                    className="premium-button w-full"
+                    onClick={() => handleBooking("Therapon")}
+                  >
+                    Book with Therapon
+                  </button>
                 </div>
               </CardContent>
             </Card>
@@ -86,17 +81,12 @@ const About = () => {
                 <div className="p-6 space-y-4 text-center">
                   <h3 className="text-2xl font-serif font-bold text-foreground">Panagiotis Charalambous</h3>
                   <p className="text-muted-foreground font-light">Master Barber</p>
-                  <div className="relative group">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-gold via-gold-light to-gold rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-[border-spin_3s_linear_infinite]"></div>
-                    <Button 
-                      variant="default" 
-                      size="lg" 
-                      className="relative w-full bg-black text-white border-0 hover:bg-black/90"
-                      onClick={() => handleBooking("Panagiotis")}
-                    >
-                      Book with Panagiotis
-                    </Button>
-                  </div>
+                  <button 
+                    className="premium-button w-full"
+                    onClick={() => handleBooking("Panagiotis")}
+                  >
+                    Book with Panagiotis
+                  </button>
                 </div>
               </CardContent>
             </Card>
