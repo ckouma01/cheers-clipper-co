@@ -142,6 +142,7 @@ All colors MUST be HSL.
     border: none;
     border-radius: 12px;
     color: #fff;
+    font-family: 'Playfair Display', serif;
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -160,7 +161,7 @@ All colors MUST be HSL.
     width: 200%;
     height: 200%;
     background: conic-gradient(from 0deg, hsl(43 74% 49%), hsl(43 80% 65%), hsl(43 60% 35%), hsl(43 74% 49%));
-    animation: rotate-border 4s linear infinite;
+    animation: rotate-border 8s linear infinite;
     z-index: -2;
   }
 
