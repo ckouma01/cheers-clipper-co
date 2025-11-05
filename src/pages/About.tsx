@@ -29,7 +29,7 @@ const About = () => {
             <h1 className="text-5xl font-serif font-bold text-primary-foreground">Meet Our <span className="text-gold">Team</span></h1>
             <div className="w-24 h-1 bg-gold mx-auto" />
             <p className="text-xl text-primary-foreground/90 font-light">
-              Expert barbers dedicated to making you <span className="gold-glow-text">look</span> and <span className="gold-glow-text">feel</span> your <span className="gold-glow-text">best</span>
+              Expert barbers dedicated to making you <span className="gold-glow-text">look</span> and <span className="gold-glow-text">feel</span> your <span className="gold-glow-text">best</span>.
             </p>
           </div>
         </div>
