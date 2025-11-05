@@ -36,9 +36,10 @@ const About = () => {
       </section>
 
       {/* Team Members Section */}
-      <section className="py-20 bg-background relative overflow-hidden">
+      <section className="py-20 bg-primary relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-secondary to-black opacity-95" />
         {/* Glowing Gold Effects */}
-        <div className="absolute inset-0 opacity-15 pointer-events-none">
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
           <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold rounded-full blur-[120px]" style={{ animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }} />
           <div className="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold rounded-full blur-[120px]" style={{ animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite 2s' }} />
         </div>
