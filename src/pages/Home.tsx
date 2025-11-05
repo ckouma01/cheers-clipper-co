@@ -3,16 +3,8 @@ import { Scissors, Clock, Award, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import logo from "@/assets/cheers-logo.png";
-import { useEffect, useState } from "react";
 
 const Home = () => {
-  const [showCheers, setShowCheers] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShowCheers(false), 3000);
-    return () => clearTimeout(timer);
-  }, []);
-
   const services = [
     {
       title: "Classic Haircut",
@@ -43,51 +35,8 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-primary text-primary-foreground py-24 md:py-32 overflow-hidden">
+      <section className="relative bg-primary text-primary-foreground py-24 md:py-32">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary/20 opacity-90" />
-        
-        {/* Cheers Animation */}
-        {showCheers && (
-          <div className="absolute inset-0 z-50 flex items-center justify-center bg-primary/95 animate-fade-out" style={{ animationDelay: '2.5s' }}>
-            <div className="flex items-end gap-8">
-              <div className="w-16 h-32 bg-gold/20 rounded-t-lg border-2 border-gold/40 animate-bottle-left" />
-              <div className="w-16 h-32 bg-gold/20 rounded-t-lg border-2 border-gold/40 animate-bottle-right" />
-            </div>
-          </div>
-        )}
-
-        {/* Champagne Bubbles */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-gold/30 rounded-full animate-bubble"
-              style={{
-                left: `${Math.random() * 100}%`,
-                bottom: '-20px',
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${8 + Math.random() * 4}s`
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Sparkle Particles */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
-          {[...Array(15)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-gold rounded-full animate-twinkle"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 2}s`
-              }}
-            />
-          ))}
-        </div>
-
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <img 
