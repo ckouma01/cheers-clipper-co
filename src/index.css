@@ -122,13 +122,88 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 
-  @keyframes float {
+  @keyframes bubble {
+    0% {
+      transform: translateY(0) translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.6;
+    }
+    90% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateY(-100vh) translateX(calc(-50px + var(--float-x, 0px)));
+      opacity: 0;
+    }
+  }
+
+  @keyframes twinkle {
     0%, 100% {
-      transform: translateY(0px) rotate(0deg);
+      opacity: 0;
+      transform: scale(0);
     }
     50% {
-      transform: translateY(-20px) rotate(5deg);
+      opacity: 1;
+      transform: scale(1.5);
     }
+  }
+
+  @keyframes bottle-left {
+    0% {
+      transform: translateX(0) rotate(0deg);
+    }
+    30% {
+      transform: translateX(-20px) rotate(-15deg);
+    }
+    50% {
+      transform: translateX(30px) rotate(15deg);
+    }
+    70% {
+      transform: translateX(-10px) rotate(-5deg);
+    }
+    100% {
+      transform: translateX(0) rotate(0deg);
+    }
+  }
+
+  @keyframes bottle-right {
+    0% {
+      transform: translateX(0) rotate(0deg);
+    }
+    30% {
+      transform: translateX(20px) rotate(15deg);
+    }
+    50% {
+      transform: translateX(-30px) rotate(-15deg);
+    }
+    70% {
+      transform: translateX(10px) rotate(5deg);
+    }
+    100% {
+      transform: translateX(0) rotate(0deg);
+    }
+  }
+
+  .animate-bubble {
+    animation: bubble linear infinite;
+  }
+
+  .animate-twinkle {
+    animation: twinkle ease-in-out infinite;
+  }
+
+  .animate-bottle-left {
+    animation: bottle-left 2s ease-in-out;
+  }
+
+  .animate-bottle-right {
+    animation: bottle-right 2s ease-in-out;
+  }
+
+  .animate-fade-out {
+    animation: fade-out 0.5s ease-out forwards;
   }
 }
 
