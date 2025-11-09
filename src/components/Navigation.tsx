@@ -61,8 +61,8 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-gold/20">
-            <div className="flex flex-col gap-4">
+          <div className="md:hidden py-4 border-t border-gold/20 animate-in slide-in-from-top-2">
+            <div className="flex flex-col gap-4 px-2">
               {navItems.map((item) => (
                 <Link
                   key={item.path}

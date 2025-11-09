@@ -64,7 +64,7 @@ const Home = () => {
             <img 
               src={logo} 
               alt="Cheers Barbershop" 
-              className="h-96 w-auto mx-auto object-contain drop-shadow-2xl"
+              className="h-64 md:h-96 w-auto mx-auto object-contain drop-shadow-2xl"
             />
             <h1 className="text-5xl md:text-6xl font-serif font-bold tracking-tight">
               Welcome to <span className="font-script text-gold text-6xl md:text-7xl">Cheers</span>
