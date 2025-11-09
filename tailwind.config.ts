@@ -124,7 +124,7 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         slideInLeft: "slideInLeft 6s ease-out forwards",
         slideInRight: "slideInRight 6s ease-out forwards",
-        levitate: "levitate 3s ease-in-out infinite",
+        levitate: "levitate 6s ease-in-out infinite",
       },
     },
   },
