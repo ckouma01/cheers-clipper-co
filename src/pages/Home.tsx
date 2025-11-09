@@ -4,8 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import logo from "@/assets/cheers-logo-new.png";
 import heroLogo from "@/assets/hero-logo.png";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Home = () => {
+  const servicesSection = useScrollAnimation();
+  const whyChooseSection = useScrollAnimation();
+  const ctaSection = useScrollAnimation();
+
   const services = [
     {
       title: "Haircut & Beard Grooming",
@@ -89,7 +94,7 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-background">
+      <section ref={servicesSection.ref} className={`py-20 bg-background transition-all duration-1000 ${servicesSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-serif font-bold mb-4 text-foreground">Our Services</h2>
@@ -100,8 +105,8 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            {services.map((service) => (
-              <Card key={service.title} className="border-2 hover:border-gold transition-all hover:shadow-2xl hover:shadow-gold/20 bg-card">
+            {services.map((service, index) => (
+              <Card key={service.title} className={`border-2 hover:border-gold transition-all hover:shadow-2xl hover:shadow-gold/20 bg-card ${servicesSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: `${index * 150}ms`, transitionDuration: '800ms' }}>
                 <CardContent className="pt-6 text-center space-y-4">
                   <div className="w-16 h-16 mx-auto bg-black rounded-full flex items-center justify-center border-2 border-gold/30">
                     <service.icon className="w-8 h-8 text-gold" />
@@ -125,14 +130,14 @@ const Home = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-secondary/30">
+      <section ref={whyChooseSection.ref} className={`py-20 bg-secondary/30 transition-all duration-1000 ${whyChooseSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-serif font-bold text-center mb-12 text-foreground">
               Why Choose <span className="text-gold">Cheers</span>?
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center space-y-3">
+              <div className={`text-center space-y-3 transition-all duration-800 ${whyChooseSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
                 <div className="w-12 h-12 bg-gold rounded-full mx-auto flex items-center justify-center">
                   <Award className="w-6 h-6 text-black" />
                 </div>
@@ -141,7 +146,7 @@ const Home = () => {
                   Skilled professionals with years of experience in classic and modern styles
                 </p>
               </div>
-              <div className="text-center space-y-3">
+              <div className={`text-center space-y-3 transition-all duration-800 ${whyChooseSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '400ms' }}>
                 <div className="w-12 h-12 bg-gold rounded-full mx-auto flex items-center justify-center">
                   <Clock className="w-6 h-6 text-black" />
                 </div>
@@ -150,7 +155,7 @@ const Home = () => {
                   Open 6 days a week with flexible appointment times to fit your schedule
                 </p>
               </div>
-              <div className="text-center space-y-3">
+              <div className={`text-center space-y-3 transition-all duration-800 ${whyChooseSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '600ms' }}>
                 <div className="w-12 h-12 bg-gold rounded-full mx-auto flex items-center justify-center">
                   <Users className="w-6 h-6 text-black" />
                 </div>
@@ -165,7 +170,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground relative overflow-hidden">
+      <section ref={ctaSection.ref} className={`py-20 bg-primary text-primary-foreground relative overflow-hidden transition-all duration-1000 ${ctaSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="absolute inset-0 bg-gradient-to-br from-black via-secondary to-black opacity-95" />
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold rounded-full blur-3xl" />
