@@ -10,7 +10,7 @@ const About = () => {
   const [selectedBarber, setSelectedBarber] = useState("");
 
   const bookingUrls = {
-    Therapon: "https://therapis27.setmore.com/burn?fbclid=PAZXh0bgNhZW0CMTEAAad6YEREHL9RJqVvUWnHT0If9n7sP1c0-6Duaip9wNJaG8T9ovCfAPFp6JgIDw_aem_mJwRNE8YOzZLeB3FvWobyQ",
+    Therapon: "https://therapis27.setmore.com/book?step=time-slot&products=sba9048736151f81ca2874b726a1ea9f116c7acae&type=service&staff=rb2061606986986400&staffSelected=true",
     Panagiotis: "https://therapis27.setmore.com/book?step=time-slot&products=aa7a5649-cf28-416d-9a06-29a5015bf9db&type=service&staff=L7vxoUGj0ZTDOvSu179MxJiP4cQyJI0t&staffSelected=true"
   };
 
