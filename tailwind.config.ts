@@ -114,8 +114,8 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        slideInLeft: "slideInLeft 1.5s ease-out forwards",
-        slideInRight: "slideInRight 1.5s ease-out forwards",
+        slideInLeft: "slideInLeft 3s ease-out forwards",
+        slideInRight: "slideInRight 3s ease-out forwards",
       },
     },
   },
