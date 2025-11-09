@@ -72,7 +72,7 @@ const Home = () => {
               className="h-48 md:h-80 w-auto mx-auto object-contain drop-shadow-2xl"
             />
             <h1 className="text-5xl md:text-6xl font-serif font-bold tracking-tight">
-              Welcome to <span className="font-script text-gold text-6xl md:text-7xl">Cheers</span>
+              Welcome to <span className="font-script text-gold text-6xl md:text-7xl inline-block animate-revealText opacity-0">Cheers</span>
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-2xl mx-auto font-light">
               Where tradition meets style. Experience the art of classic and modern grooming since 2019.

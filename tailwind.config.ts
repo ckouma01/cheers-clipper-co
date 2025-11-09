@@ -118,6 +118,30 @@ export default {
             transform: "translateY(-15px)",
           },
         },
+        handwrite: {
+          "0%": {
+            strokeDashoffset: "1000",
+            opacity: "0",
+          },
+          "50%": {
+            strokeDashoffset: "0",
+            opacity: "1",
+          },
+          "100%": {
+            strokeDashoffset: "0",
+            opacity: "1",
+          },
+        },
+        revealText: {
+          "0%": {
+            clipPath: "inset(0 100% 0 0)",
+            opacity: "0",
+          },
+          "100%": {
+            clipPath: "inset(0 0 0 0)",
+            opacity: "1",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -125,6 +149,8 @@ export default {
         slideInLeft: "slideInLeft 6s ease-out forwards",
         slideInRight: "slideInRight 6s ease-out forwards",
         levitate: "levitate 6s ease-in-out infinite",
+        handwrite: "handwrite 2.5s ease-out forwards",
+        revealText: "revealText 2.5s ease-out 0.5s forwards",
       },
     },
   },
