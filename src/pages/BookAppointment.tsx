@@ -1,5 +1,5 @@
 const BookAppointment = () => {
-  const bookingUrl = "https://therapis27.setmore.com/burn?fbclid=PAZXh0bgNhZW0CMTEAAad6YEREHL9RJqVvUWnHT0If9n7sP1c0-6Duaip9wNJaG8T9ovCfAPFp6JgIDw_aem_mJwRNE8YOzZLeB3FvWobyQ";
+  const bookingUrl = "https://therapis27.setmore.com/";
 
   return (
     <div className="min-h-screen bg-background py-8">
