@@ -9,7 +9,10 @@ const About = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [selectedBarber, setSelectedBarber] = useState("");
 
-  const bookingUrl = "https://therapis27.setmore.com/burn?fbclid=PAZXh0bgNhZW0CMTEAAad6YEREHL9RJqVvUWnHT0If9n7sP1c0-6Duaip9wNJaG8T9ovCfAPFp6JgIDw_aem_mJwRNE8YOzZLeB3FvWobyQ";
+  const bookingUrls = {
+    Therapon: "https://therapis27.setmore.com/burn?fbclid=PAZXh0bgNhZW0CMTEAAad6YEREHL9RJqVvUWnHT0If9n7sP1c0-6Duaip9wNJaG8T9ovCfAPFp6JgIDw_aem_mJwRNE8YOzZLeB3FvWobyQ",
+    Panagiotis: "https://therapis27.setmore.com/book?step=additional-products&products=aa7a5649-cf28-416d-9a06-29a5015bf9db&type=service&staff=rb2061606986986400&staffSelected=false"
+  };
 
   const handleBooking = (barberName: string) => {
     setSelectedBarber(barberName);
@@ -81,14 +84,12 @@ const About = () => {
                 <div className="p-6 space-y-4 text-center">
                   <h3 className="text-2xl font-serif font-bold text-foreground">Panagiotis Charalambous</h3>
                   <p className="text-muted-foreground font-light"><span className="gold-glow-text">Master</span> Barber</p>
-                  <a 
-                    href="https://therapis27.setmore.com/book?step=additional-products&products=aa7a5649-cf28-416d-9a06-29a5015bf9db&type=service&staff=rb2061606986986400&staffSelected=false"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="premium-button w-full block text-center"
+                  <button 
+                    className="premium-button w-full"
+                    onClick={() => handleBooking("Panagiotis")}
                   >
                     Book with Panagiotis
-                  </a>
+                  </button>
                 </div>
               </CardContent>
             </Card>
@@ -107,7 +108,7 @@ const About = () => {
           </DialogHeader>
           <div className="flex-1 px-6 pb-6 min-h-0">
             <iframe
-              src={bookingUrl}
+              src={bookingUrls[selectedBarber as keyof typeof bookingUrls]}
               className="w-full h-full border-0 rounded"
               title={`Book with ${selectedBarber}`}
             />
