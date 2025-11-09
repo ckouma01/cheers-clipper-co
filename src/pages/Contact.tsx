@@ -17,9 +17,16 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Create mailto link
+    const mailtoLink = `mailto:therapis1995@icloud.com?subject=Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
     toast({
-      title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
+      title: "Opening Email Client",
+      description: "Your message will be sent via your email client.",
     });
     setFormData({ name: "", email: "", message: "" });
   };
@@ -28,27 +35,28 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      content: "(555) 123-4567",
-      link: "tel:5551234567",
+      content: "Panagiotis: 99246036 | Therapon: 96557340",
+      link: "tel:99246036",
     },
     {
       icon: Mail,
       title: "Email",
-      content: "info@cheersbarbershop.com",
-      link: "mailto:info@cheersbarbershop.com",
+      content: "therapis1995@icloud.com",
+      link: "mailto:therapis1995@icloud.com",
     },
     {
       icon: MapPin,
       title: "Location",
-      content: "123 Main Street, Downtown, NY 10001",
+      content: "Αρχιεπισκόπου Μακαρίου Γ΄ 103",
       link: "https://maps.google.com",
     },
   ];
 
   const hours = [
-    { day: "Monday - Friday", time: "9:00 AM - 8:00 PM" },
-    { day: "Saturday", time: "9:00 AM - 6:00 PM" },
-    { day: "Sunday", time: "10:00 AM - 5:00 PM" },
+    { day: "Monday - Wednesday, Friday", time: "9:00 AM - 7:00 PM" },
+    { day: "Thursday", time: "9:00 AM - 2:00 PM" },
+    { day: "Saturday", time: "9:00 AM - 2:00 PM" },
+    { day: "Sunday", time: "CLOSED" },
   ];
 
   return (

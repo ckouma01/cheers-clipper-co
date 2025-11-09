@@ -17,7 +17,7 @@ const Footer = () => {
               <img src={logo} alt="Cheers Barbershop" className="h-16 w-auto object-contain" />
             </div>
             <p className="text-sm text-primary-foreground/80 font-light">
-              Where tradition meets style since 2019. Experience the art of classic grooming.
+              Where tradition meets style since 2019. Experience the art of classic and modern grooming.
             </p>
           </div>
 
@@ -54,15 +54,18 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm font-light">
                 <Phone className="w-4 h-4 mt-0.5 text-gold flex-shrink-0" />
-                <span>(555) 123-4567</span>
+                <div className="flex flex-col">
+                  <span>Panagiotis: 99246036</span>
+                  <span>Therapon: 96557340</span>
+                </div>
               </li>
               <li className="flex items-start gap-2 text-sm font-light">
                 <Mail className="w-4 h-4 mt-0.5 text-gold flex-shrink-0" />
-                <span>info@cheersbarbershop.com</span>
+                <span>therapis1995@icloud.com</span>
               </li>
               <li className="flex items-start gap-2 text-sm font-light">
                 <MapPin className="w-4 h-4 mt-0.5 text-gold flex-shrink-0" />
-                <span>123 Main Street, Downtown, NY 10001</span>
+                <span>Αρχιεπισκόπου Μακαρίου Γ΄ 103</span>
               </li>
             </ul>
           </div>
@@ -75,13 +78,16 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2 text-sm font-light">
               <li>
-                <span className="font-semibold">Mon-Fri:</span> 9AM - 8PM
+                <span className="font-semibold">Mon-Wed, Fri:</span> 9AM - 7PM
               </li>
               <li>
-                <span className="font-semibold">Saturday:</span> 9AM - 6PM
+                <span className="font-semibold">Thursday:</span> 9AM - 2PM
               </li>
               <li>
-                <span className="font-semibold">Sunday:</span> 10AM - 5PM
+                <span className="font-semibold">Saturday:</span> 9AM - 2PM
+              </li>
+              <li>
+                <span className="font-semibold">Sunday:</span> CLOSED
               </li>
             </ul>
           </div>

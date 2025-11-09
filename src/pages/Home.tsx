@@ -3,31 +3,32 @@ import { Scissors, Clock, Award, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import logo from "@/assets/cheers-logo-new.png";
+import heroLogo from "@/assets/hero-logo.png";
 
 const Home = () => {
   const services = [
     {
-      title: "Classic Haircut",
-      description: "Traditional cuts styled to perfection with precision and care",
-      price: "$35",
+      title: "Haircut & Beard Grooming",
+      description: "Hair washing included",
+      price: "15€",
       icon: Scissors,
     },
     {
       title: "Hot Towel Shave",
-      description: "Relaxing straight razor shave with premium products",
-      price: "$40",
+      description: "Hair washing included",
+      price: "15€",
       icon: Award,
     },
     {
-      title: "Beard Trim & Shape",
-      description: "Expert beard grooming to maintain your style",
-      price: "$25",
+      title: "Haircut & Hot Towel Shave",
+      description: "Hair washing included",
+      price: "25€",
       icon: Users,
     },
     {
-      title: "Full Service",
-      description: "Complete grooming experience: cut, shave, and style",
-      price: "$65",
+      title: "Beard Trim",
+      description: "Hair washing included",
+      price: "5€",
       icon: Clock,
     },
   ];
@@ -39,11 +40,11 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black via-secondary to-black opacity-95" />
         
         {/* Logo Background Watermark */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-5">
+        <div className="absolute inset-0 flex items-center justify-center opacity-20">
           <img 
-            src={logo} 
+            src={heroLogo} 
             alt="" 
-            className="w-full max-w-4xl h-auto object-contain"
+            className="w-full h-full object-cover"
           />
         </div>
         
@@ -63,13 +64,13 @@ const Home = () => {
             <img 
               src={logo} 
               alt="Cheers Barbershop" 
-              className="h-48 w-auto mx-auto object-contain drop-shadow-2xl"
+              className="h-96 w-auto mx-auto object-contain drop-shadow-2xl"
             />
             <h1 className="text-5xl md:text-6xl font-serif font-bold tracking-tight">
               Welcome to <span className="font-script text-gold text-6xl md:text-7xl">Cheers</span>
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-2xl mx-auto font-light">
-              Where tradition meets style. Experience the art of classic grooming since 2019.
+              Where tradition meets style. Experience the art of classic and modern grooming since 2019.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Link to="/book">
@@ -94,7 +95,7 @@ const Home = () => {
             <h2 className="text-4xl font-serif font-bold mb-4 text-foreground">Our Services</h2>
             <div className="w-24 h-1 bg-gold mx-auto mb-6" />
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-              Premium grooming services tailored to your style. Every service includes a complimentary beverage.
+              Premium grooming services tailored to your style. All services include hair washing.
             </p>
           </div>
 
@@ -146,7 +147,7 @@ const Home = () => {
                 </div>
                 <h3 className="text-xl font-serif font-semibold text-foreground">Convenient Hours</h3>
                 <p className="text-muted-foreground font-light">
-                  Open 7 days a week with flexible appointment times to fit your schedule
+                  Open 6 days a week with flexible appointment times to fit your schedule
                 </p>
               </div>
               <div className="text-center space-y-3">
@@ -155,7 +156,7 @@ const Home = () => {
                 </div>
                 <h3 className="text-xl font-serif font-semibold text-foreground">Relaxed Atmosphere</h3>
                 <p className="text-muted-foreground font-light">
-                  Enjoy complimentary drinks in a comfortable, welcoming environment
+                  Unwind in a comfortable, welcoming environment designed for your relaxation
                 </p>
               </div>
             </div>

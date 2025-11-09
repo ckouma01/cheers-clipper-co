@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/cheers-logo-new.png";
 
@@ -39,6 +39,15 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
+            <a
+              href="https://www.instagram.com/cheers_barbershop/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-gold transition-all duration-300 hover:scale-110"
+              aria-label="Visit our Instagram"
+            >
+              <Instagram size={24} />
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -66,6 +75,16 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
+              <a
+                href="https://www.instagram.com/cheers_barbershop/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 text-foreground flex items-center gap-2"
+              >
+                <Instagram size={20} />
+                INSTAGRAM
+              </a>
             </div>
           </div>
         )}
