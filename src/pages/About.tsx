@@ -81,12 +81,14 @@ const About = () => {
                 <div className="p-6 space-y-4 text-center">
                   <h3 className="text-2xl font-serif font-bold text-foreground">Panagiotis Charalambous</h3>
                   <p className="text-muted-foreground font-light"><span className="gold-glow-text">Master</span> Barber</p>
-                  <button 
-                    className="premium-button w-full"
-                    onClick={() => handleBooking("Panagiotis")}
+                  <a 
+                    href="https://therapis27.setmore.com/book?step=additional-products&products=aa7a5649-cf28-416d-9a06-29a5015bf9db&type=service&staff=rb2061606986986400&staffSelected=false"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="premium-button w-full block text-center"
                   >
                     Book with Panagiotis
-                  </button>
+                  </a>
                 </div>
               </CardContent>
             </Card>
