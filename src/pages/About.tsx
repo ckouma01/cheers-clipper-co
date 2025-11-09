@@ -49,7 +49,7 @@ const About = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* Therapon */}
-            <Card className="border-2 hover:border-gold transition-all duration-300 overflow-hidden hover:shadow-2xl hover:shadow-gold/20 bg-card animate-slideInLeft delay-200">
+            <Card className="border-2 hover:border-gold transition-all duration-300 overflow-hidden hover:shadow-2xl hover:shadow-gold/20 bg-card animate-slideInLeft delay-200 [animation-delay:6s] animate-levitate">
               <CardContent className="p-0">
                 <div className="aspect-square overflow-hidden">
                   <img 
@@ -72,7 +72,7 @@ const About = () => {
             </Card>
 
             {/* Panagiotis */}
-            <Card className="border-2 hover:border-gold transition-all duration-300 overflow-hidden hover:shadow-2xl hover:shadow-gold/20 bg-card animate-slideInRight delay-200">
+            <Card className="border-2 hover:border-gold transition-all duration-300 overflow-hidden hover:shadow-2xl hover:shadow-gold/20 bg-card animate-slideInRight delay-200 [animation-delay:6s] animate-levitate">
               <CardContent className="p-0">
                 <div className="aspect-square overflow-hidden">
                   <img 
