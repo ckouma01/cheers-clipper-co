@@ -65,7 +65,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-2 text-sm font-light">
                 <MapPin className="w-4 h-4 mt-0.5 text-gold flex-shrink-0" />
-                <span>Αρχιεπισκόπου Μακαρίου Γ΄ 103</span>
+                <span>Αρχιεπισκόπου Μακαρίου Γ΄ 103, Λατσιά, Λευκωσία</span>
               </li>
             </ul>
           </div>

@@ -47,7 +47,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Location",
-      content: "Αρχιεπισκόπου Μακαρίου Γ΄ 103",
+      content: "Αρχιεπισκόπου Μακαρίου Γ΄ 103, Λατσιά, Λευκωσία",
       link: "https://maps.google.com",
     },
   ];
