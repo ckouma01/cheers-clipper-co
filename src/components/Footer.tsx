@@ -1,6 +1,6 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/cheers-logo-new.png";
+import logo from "@/assets/christmas-logo.png";
 
 const Footer = () => {
   return (
