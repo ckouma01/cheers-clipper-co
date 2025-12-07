@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Scissors, Clock, Award, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import logo from "@/assets/cheers-logo-new.png";
+import logo from "@/assets/christmas-logo.png";
 import heroLogo from "@/assets/hero-logo.png";
 
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
