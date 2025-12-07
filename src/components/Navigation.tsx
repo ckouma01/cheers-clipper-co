@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/christmas-logo.png";
+import ChristmasLights from "./ChristmasLights";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +19,7 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="sticky top-0 z-50 bg-background/98 backdrop-blur-md border-b border-gold/20 shadow-lg">
+    <nav className="sticky top-0 z-50 bg-background/98 backdrop-blur-md border-b border-gold/20 shadow-lg relative">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -89,6 +90,7 @@ const Navigation = () => {
           </div>
         )}
       </div>
+      <ChristmasLights />
     </nav>
   );
 };
