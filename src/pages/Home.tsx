@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import logo from "@/assets/cheers-logo-new.png";
 import heroLogo from "@/assets/hero-logo.png";
+import santaHat from "@/assets/santa-hat.png";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Home = () => {
@@ -66,11 +67,18 @@ const Home = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <img 
-              src={logo} 
-              alt="Cheers Barbershop" 
-              className="h-48 md:h-80 w-auto mx-auto object-contain drop-shadow-2xl"
-            />
+            <div className="relative inline-block">
+              <img 
+                src={santaHat} 
+                alt="" 
+                className="absolute -top-12 md:-top-20 left-1/2 -translate-x-1/2 w-32 md:w-48 z-10 rotate-[-10deg]"
+              />
+              <img 
+                src={logo} 
+                alt="Cheers Barbershop" 
+                className="h-48 md:h-80 w-auto mx-auto object-contain drop-shadow-2xl"
+              />
+            </div>
             <h1 className="text-5xl md:text-6xl font-serif font-bold tracking-tight">
               Welcome to <span className="font-script text-gold text-6xl md:text-7xl inline-block animate-revealText opacity-0">Cheers</span>
             </h1>
