@@ -22,9 +22,9 @@ const App = () => (
       <Toaster />
       <Sonner />
       <Snowflakes />
-      <ChristmasModal />
       {USE_HASH_ROUTER ? (
         <HashRouter>
+          <ChristmasModal />
           <div className="min-h-screen flex flex-col">
             <div className="christmas-lights" />
             <Navigation />
@@ -43,6 +43,7 @@ const App = () => (
         </HashRouter>
       ) : (
         <BrowserRouter>
+          <ChristmasModal />
           <div className="min-h-screen flex flex-col">
             <div className="christmas-lights" />
             <Navigation />
