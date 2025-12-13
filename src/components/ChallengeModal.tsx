@@ -105,16 +105,16 @@ const ChallengeModal = ({ isOpen, onClose }: ChallengeModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="max-w-md md:max-w-lg p-0 overflow-hidden border-2 border-gold/50 bg-card">
-        <DialogHeader className="p-4 pb-0">
-          <DialogTitle className="text-center text-2xl font-serif text-gold flex items-center justify-center gap-2">
+      <DialogContent className="max-w-[90vw] md:max-w-lg p-0 overflow-hidden border-2 border-gold/50 bg-card max-h-[90vh] flex flex-col">
+        <DialogHeader className="p-3 md:p-4 pb-0 flex-shrink-0">
+          <DialogTitle className="text-center text-xl md:text-2xl font-serif text-gold flex items-center justify-center gap-2">
             🎯 NEW CHALLENGE! 🎯
           </DialogTitle>
         </DialogHeader>
-        <div className="p-4 pt-2 space-y-4">
+        <div className="p-3 md:p-4 pt-2 space-y-3 md:space-y-4 overflow-y-auto flex-1">
           {/* Stopwatch Animation */}
-          <div className="flex flex-col items-center justify-center py-4">
-            <div className={`text-5xl md:text-6xl font-bold font-mono transition-all duration-200 ${
+          <div className="flex flex-col items-center justify-center py-2 md:py-4">
+            <div className={`text-4xl md:text-6xl font-bold font-mono transition-all duration-200 ${
               hasReached10 
                 ? 'text-green-500 animate-pulse scale-110' 
                 : 'text-red-500'
@@ -122,7 +122,7 @@ const ChallengeModal = ({ isOpen, onClose }: ChallengeModalProps) => {
               {formatTime(displayTime)}
             </div>
             {hasReached10 && (
-              <div className="mt-2 text-gold font-serif text-xl animate-bounce">
+              <div className="mt-2 text-gold font-serif text-lg md:text-xl animate-bounce">
                 🎉 FREE HAIRCUT! 🎉
               </div>
             )}
@@ -132,22 +132,25 @@ const ChallengeModal = ({ isOpen, onClose }: ChallengeModalProps) => {
           <img
             src={challengeAnnouncement}
             alt="10:00 Challenge - Stop the stopwatch at exactly 10:00 seconds and win a free haircut!"
-            className="w-full h-auto rounded-lg shadow-lg"
+            className="w-full h-auto rounded-lg shadow-lg max-h-[30vh] object-contain"
           />
           
           {/* Challenge Description */}
-          <div className="text-center space-y-2">
-            <p className="text-foreground font-semibold text-lg">
+          <div className="text-center space-y-1 md:space-y-2">
+            <p className="text-foreground font-semibold text-base md:text-lg">
               🏆 Stop at exactly 10:00 = FREE Haircut!
             </p>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-muted-foreground text-xs md:text-sm">
               With every haircut, you get <span className="text-gold font-bold">1 entry</span> to play the challenge!
             </p>
-            <p className="text-muted-foreground text-sm italic">
+            <p className="text-muted-foreground text-xs md:text-sm italic">
               Press the buzzer before you pay and try your luck!
             </p>
           </div>
-
+        </div>
+        
+        {/* Fixed button at bottom */}
+        <div className="p-3 md:p-4 pt-0 flex-shrink-0 border-t border-border/50">
           <Button
             variant="hero"
             className="w-full"
