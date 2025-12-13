@@ -117,10 +117,8 @@ const ChallengeModal = ({ isOpen, onClose }: ChallengeModalProps) => {
         <div className="p-3 md:p-4 pt-2 space-y-3 md:space-y-4 overflow-y-auto flex-1">
           {/* Stopwatch Animation */}
           <div className="flex flex-col items-center justify-center py-2 md:py-4">
-            <div className={`text-4xl md:text-6xl font-bold font-mono transition-all duration-200 ${
-              hasReached10 
-                ? 'text-green-500 animate-pulse scale-110' 
-                : 'text-red-500'
+            <div className={`text-4xl md:text-6xl font-bold font-mono transition-all duration-200 text-red-500 ${
+              hasReached10 ? 'animate-pulse scale-110' : ''
             }`}>
               {formatTime(displayTime)}
             </div>
