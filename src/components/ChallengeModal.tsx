@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Dialog,
   DialogContent,
@@ -19,6 +20,7 @@ const ChallengeModal = ({ isOpen, onClose }: ChallengeModalProps) => {
   const [hasReached10, setHasReached10] = useState(false);
   const animationRef = useRef<number | null>(null);
   const startTimeRef = useRef<number | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isOpen && !hasReached10) {
@@ -95,6 +97,7 @@ const ChallengeModal = ({ isOpen, onClose }: ChallengeModalProps) => {
     setDisplayTime(0);
     onClose();
     sessionStorage.setItem("challengeModalSeen", "true");
+    navigate("/about");
   };
 
   const formatTime = (time: number) => {
