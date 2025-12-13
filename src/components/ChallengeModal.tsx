@@ -1,0 +1,164 @@
+import { useState, useEffect, useRef } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import challengeAnnouncement from "@/assets/challenge-announcement.png";
+import confetti from "canvas-confetti";
+
+interface ChallengeModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const ChallengeModal = ({ isOpen, onClose }: ChallengeModalProps) => {
+  const [displayTime, setDisplayTime] = useState(0);
+  const [hasReached10, setHasReached10] = useState(false);
+  const animationRef = useRef<number | null>(null);
+  const startTimeRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (isOpen && !hasReached10) {
+      setDisplayTime(0);
+      startTimeRef.current = null;
+      
+      const animate = (timestamp: number) => {
+        if (!startTimeRef.current) {
+          startTimeRef.current = timestamp;
+        }
+        
+        const elapsed = timestamp - startTimeRef.current;
+        // Speed up animation: reach 10 seconds in about 2.5 real seconds
+        const simulatedTime = (elapsed / 250);
+        
+        if (simulatedTime >= 10) {
+          setDisplayTime(10);
+          setHasReached10(true);
+          triggerConfetti();
+        } else {
+          setDisplayTime(simulatedTime);
+          animationRef.current = requestAnimationFrame(animate);
+        }
+      };
+      
+      animationRef.current = requestAnimationFrame(animate);
+      
+      return () => {
+        if (animationRef.current) {
+          cancelAnimationFrame(animationRef.current);
+        }
+      };
+    }
+  }, [isOpen, hasReached10]);
+
+  const triggerConfetti = () => {
+    const duration = 3000;
+    const end = Date.now() + duration;
+
+    const frame = () => {
+      confetti({
+        particleCount: 7,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0, y: 0.7 },
+        colors: ['#DAA520', '#FFD700', '#FFA500', '#FF4500', '#00FF00']
+      });
+      confetti({
+        particleCount: 7,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1, y: 0.7 },
+        colors: ['#DAA520', '#FFD700', '#FFA500', '#FF4500', '#00FF00']
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    };
+
+    // Initial burst
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ['#DAA520', '#FFD700', '#FFA500', '#FF4500', '#00FF00']
+    });
+
+    frame();
+  };
+
+  const handleClose = () => {
+    setHasReached10(false);
+    setDisplayTime(0);
+    onClose();
+    sessionStorage.setItem("challengeModalSeen", "true");
+  };
+
+  const formatTime = (time: number) => {
+    const seconds = Math.floor(time);
+    const hundredths = Math.floor((time - seconds) * 100);
+    return `${seconds.toString().padStart(2, '0')}:${hundredths.toString().padStart(2, '0')}`;
+  };
+
+  return (
+    <Dialog open={isOpen} onOpenChange={handleClose}>
+      <DialogContent className="max-w-md md:max-w-lg p-0 overflow-hidden border-2 border-gold/50 bg-card">
+        <DialogHeader className="p-4 pb-0">
+          <DialogTitle className="text-center text-2xl font-serif text-gold flex items-center justify-center gap-2">
+            🎯 NEW CHALLENGE! 🎯
+          </DialogTitle>
+        </DialogHeader>
+        <div className="p-4 pt-2 space-y-4">
+          {/* Stopwatch Animation */}
+          <div className="flex flex-col items-center justify-center py-4">
+            <div className={`text-5xl md:text-6xl font-bold font-mono transition-all duration-200 ${
+              hasReached10 
+                ? 'text-green-500 animate-pulse scale-110' 
+                : 'text-red-500'
+            }`}>
+              {formatTime(displayTime)}
+            </div>
+            {hasReached10 && (
+              <div className="mt-2 text-gold font-serif text-xl animate-bounce">
+                🎉 FREE HAIRCUT! 🎉
+              </div>
+            )}
+          </div>
+
+          {/* Announcement Image */}
+          <img
+            src={challengeAnnouncement}
+            alt="10:00 Challenge - Stop the stopwatch at exactly 10:00 seconds and win a free haircut!"
+            className="w-full h-auto rounded-lg shadow-lg"
+          />
+          
+          {/* Challenge Description */}
+          <div className="text-center space-y-2">
+            <p className="text-foreground font-semibold text-lg">
+              🏆 Stop at exactly 10:00 = FREE Haircut!
+            </p>
+            <p className="text-muted-foreground text-sm">
+              With every haircut, you get <span className="text-gold font-bold">1 entry</span> to play the challenge!
+            </p>
+            <p className="text-muted-foreground text-sm italic">
+              Press the buzzer before you pay and try your luck!
+            </p>
+          </div>
+
+          <Button
+            variant="hero"
+            className="w-full"
+            onClick={handleClose}
+          >
+            I'm Ready to Play! 🎯
+          </Button>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+};
+
+export default ChallengeModal;
