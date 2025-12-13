@@ -132,7 +132,7 @@ const ChallengeModal = ({ isOpen, onClose }: ChallengeModalProps) => {
           <img
             src={challengeAnnouncement}
             alt="10:00 Challenge - Stop the stopwatch at exactly 10:00 seconds and win a free haircut!"
-            className="w-full h-auto rounded-lg shadow-lg max-h-[30vh] object-contain"
+            className="w-full h-auto rounded-lg shadow-lg max-h-[30vh] md:max-h-none object-contain md:object-cover"
           />
           
           {/* Challenge Description */}
