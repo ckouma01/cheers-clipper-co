@@ -12,15 +12,41 @@ import ChallengeModal from "@/components/ChallengeModal";
 const ChristmasModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showChallengeModal, setShowChallengeModal] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   useEffect(() => {
+    const handleInteraction = () => {
+      if (!hasInteracted) {
+        setHasInteracted(true);
+      }
+    };
+
+    // Listen for any user interaction
+    window.addEventListener('click', handleInteraction);
+    window.addEventListener('scroll', handleInteraction);
+    window.addEventListener('keydown', handleInteraction);
+    window.addEventListener('touchstart', handleInteraction);
+    window.addEventListener('mousemove', handleInteraction, { once: true });
+
+    return () => {
+      window.removeEventListener('click', handleInteraction);
+      window.removeEventListener('scroll', handleInteraction);
+      window.removeEventListener('keydown', handleInteraction);
+      window.removeEventListener('touchstart', handleInteraction);
+      window.removeEventListener('mousemove', handleInteraction);
+    };
+  }, [hasInteracted]);
+
+  useEffect(() => {
+    if (!hasInteracted) return;
+
     // Check if user has already seen the modal this session
     const hasSeenModal = sessionStorage.getItem("christmasModalSeen");
     if (!hasSeenModal) {
-      // Small delay for better UX
+      // Small delay after interaction
       const timer = setTimeout(() => {
         setIsOpen(true);
-      }, 500);
+      }, 200);
       return () => clearTimeout(timer);
     } else {
       // If Christmas modal was seen, check if challenge modal should show
@@ -28,11 +54,11 @@ const ChristmasModal = () => {
       if (!hasSeenChallengeModal) {
         const timer = setTimeout(() => {
           setShowChallengeModal(true);
-        }, 500);
+        }, 200);
         return () => clearTimeout(timer);
       }
     }
-  }, []);
+  }, [hasInteracted]);
 
   const handleClose = () => {
     setIsOpen(false);
