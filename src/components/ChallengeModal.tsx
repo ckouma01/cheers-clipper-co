@@ -57,21 +57,22 @@ const ChallengeModal = ({ isOpen, onClose }: ChallengeModalProps) => {
   }, [isOpen, hasReached10]);
 
   const triggerConfetti = () => {
-    const duration = 3000;
+    const isMobile = window.innerWidth < 768;
+    const duration = isMobile ? 1500 : 3000;
     const end = Date.now() + duration;
 
     const frame = () => {
       confetti({
-        particleCount: 7,
+        particleCount: isMobile ? 2 : 7,
         angle: 60,
-        spread: 55,
+        spread: isMobile ? 40 : 55,
         origin: { x: 0, y: 0.7 },
         colors: ['#DAA520', '#FFD700', '#FFA500', '#FF4500', '#00FF00']
       });
       confetti({
-        particleCount: 7,
+        particleCount: isMobile ? 2 : 7,
         angle: 120,
-        spread: 55,
+        spread: isMobile ? 40 : 55,
         origin: { x: 1, y: 0.7 },
         colors: ['#DAA520', '#FFD700', '#FFA500', '#FF4500', '#00FF00']
       });
@@ -83,8 +84,8 @@ const ChallengeModal = ({ isOpen, onClose }: ChallengeModalProps) => {
 
     // Initial burst
     confetti({
-      particleCount: 100,
-      spread: 70,
+      particleCount: isMobile ? 30 : 100,
+      spread: isMobile ? 50 : 70,
       origin: { y: 0.6 },
       colors: ['#DAA520', '#FFD700', '#FFA500', '#FF4500', '#00FF00']
     });

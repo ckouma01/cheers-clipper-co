@@ -16,8 +16,8 @@ const Snowflakes = () => {
     const flakes: Snowflake[] = Array.from({ length: 50 }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
-      animationDuration: 4 + Math.random() * 8,
-      animationDelay: Math.random() * 4,
+      animationDuration: 2 + Math.random() * 3,
+      animationDelay: Math.random() * 2,
       size: 4 + Math.random() * 8,
       opacity: 0.4 + Math.random() * 0.6,
     }));
