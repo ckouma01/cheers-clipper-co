@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Scissors, Clock, Award, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import Gallery from "@/components/Gallery";
 import logo from "@/assets/christmas-logo.png";
 import heroLogo from "@/assets/hero-logo.png";
 
@@ -169,6 +170,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Gallery Section */}
+      <Gallery />
 
       {/* CTA Section */}
       <section ref={ctaSection.ref} className={`py-20 bg-primary text-primary-foreground relative overflow-hidden transition-all duration-[4500ms] ${ctaSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
