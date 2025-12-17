@@ -137,7 +137,7 @@ const ChallengeModal = ({ isOpen, onClose }: ChallengeModalProps) => {
             loop
             muted
             playsInline
-            className="w-full h-auto rounded-lg shadow-lg max-h-[30vh] md:max-h-none object-contain md:object-cover"
+            className="w-full h-auto rounded-lg shadow-lg max-h-[30vh] md:max-h-none object-cover"
           />
           
           {/* Challenge Description */}
