@@ -7,7 +7,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import challengeAnnouncement from "@/assets/challenge-announcement.png";
+import challengeVideo from "@/assets/challenge-video.mp4";
 import confetti from "canvas-confetti";
 
 interface ChallengeModalProps {
@@ -130,10 +130,13 @@ const ChallengeModal = ({ isOpen, onClose }: ChallengeModalProps) => {
             )}
           </div>
 
-          {/* Announcement Image */}
-          <img
-            src={challengeAnnouncement}
-            alt="10:00 Challenge - Stop the stopwatch at exactly 10:00 seconds and win a free haircut!"
+          {/* Announcement Video */}
+          <video
+            src={challengeVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
             className="w-full h-auto rounded-lg shadow-lg max-h-[30vh] md:max-h-none object-contain md:object-cover"
           />
           
