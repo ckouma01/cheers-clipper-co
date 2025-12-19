@@ -1,5 +1,9 @@
+import ChallengeModal from "@/components/ChallengeModal";
+import { useChallengeModal } from "@/hooks/use-challenge-modal";
+
 const BookAppointment = () => {
   const bookingUrl = "https://therapis27.setmore.com/";
+  const { showChallengeModal, handleChallengeClose } = useChallengeModal();
 
   return (
     <div className="min-h-screen bg-background py-8">
@@ -24,6 +28,11 @@ const BookAppointment = () => {
           </div>
         </div>
       </div>
+
+      <ChallengeModal 
+        isOpen={showChallengeModal} 
+        onClose={handleChallengeClose} 
+      />
     </div>
   );
 };
