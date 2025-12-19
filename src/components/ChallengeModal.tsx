@@ -98,7 +98,6 @@ const ChallengeModal = ({ isOpen, onClose }: ChallengeModalProps) => {
     setDisplayTime(0);
     onClose();
     sessionStorage.setItem("challengeModalSeen", "true");
-    navigate("/about");
   };
 
   const formatTime = (time: number) => {
