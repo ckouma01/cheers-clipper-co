@@ -5,6 +5,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import Gallery from "@/components/Gallery";
 import logo from "@/assets/christmas-logo.png";
 import heroLogo from "@/assets/hero-logo.png";
+import heroVideo from "@/assets/hero-video.mp4";
+import { useState, useRef, useEffect } from "react";
 
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
@@ -12,6 +14,27 @@ const Home = () => {
   const servicesSection = useScrollAnimation();
   const whyChooseSection = useScrollAnimation();
   const ctaSection = useScrollAnimation();
+  
+  const [showVideo, setShowVideo] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleVideoEnd = () => {
+      setShowVideo(false);
+      // After 10 seconds of showing the image, switch back to video
+      setTimeout(() => {
+        setShowVideo(true);
+        video.currentTime = 0;
+        video.play();
+      }, 10000);
+    };
+
+    video.addEventListener('ended', handleVideoEnd);
+    return () => video.removeEventListener('ended', handleVideoEnd);
+  }, []);
 
   const services = [
     {
@@ -46,12 +69,20 @@ const Home = () => {
       <section className="relative bg-primary text-primary-foreground py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-secondary to-black opacity-95" />
         
-        {/* Logo Background Watermark */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-20">
+        {/* Video/Image Background */}
+        <div className="absolute inset-0">
+          <video
+            ref={videoRef}
+            src={heroVideo}
+            muted
+            autoPlay
+            playsInline
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${showVideo ? 'opacity-30' : 'opacity-0'}`}
+          />
           <img 
             src={heroLogo} 
             alt="" 
-            className="w-full h-full object-cover"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${showVideo ? 'opacity-0' : 'opacity-20'}`}
           />
         </div>
         
