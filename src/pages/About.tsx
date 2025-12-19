@@ -4,10 +4,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import theraponImg from "@/assets/therapon.png";
 import panagiotisImg from "@/assets/panagiotis.png";
+import ChallengeModal from "@/components/ChallengeModal";
+import { useChallengeModal } from "@/hooks/use-challenge-modal";
 
 const About = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [selectedBarber, setSelectedBarber] = useState("");
+  const { showChallengeModal, handleChallengeClose } = useChallengeModal();
 
   const bookingUrls = {
     Therapon: "https://therapis27.setmore.com/book?step=time-slot&products=sba9048736151f81ca2874b726a1ea9f116c7acae&type=service&staff=rb2061606986986400&staffSelected=true",
@@ -115,6 +118,11 @@ const About = () => {
           </div>
         </DialogContent>
       </Dialog>
+
+      <ChallengeModal 
+        isOpen={showChallengeModal} 
+        onClose={handleChallengeClose} 
+      />
     </div>
   );
 };
