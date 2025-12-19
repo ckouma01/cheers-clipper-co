@@ -142,6 +142,20 @@ export default {
             opacity: "1",
           },
         },
+        starShine: {
+          "0%": {
+            filter: "brightness(1) drop-shadow(0 0 0px transparent)",
+            transform: "scale(1)",
+          },
+          "50%": {
+            filter: "brightness(1.8) drop-shadow(0 0 8px hsl(var(--gold)))",
+            transform: "scale(1.15)",
+          },
+          "100%": {
+            filter: "brightness(1) drop-shadow(0 0 0px transparent)",
+            transform: "scale(1)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -151,6 +165,7 @@ export default {
         levitate: "levitate 6s ease-in-out infinite",
         handwrite: "handwrite 2.5s ease-out forwards",
         revealText: "revealText 2.5s ease-out 0.5s forwards",
+        starShine: "starShine 0.6s ease-in-out forwards",
       },
     },
   },
