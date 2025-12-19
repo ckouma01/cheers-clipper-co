@@ -29,7 +29,7 @@ const Home = () => {
         setShowVideo(true);
         video.currentTime = 0;
         video.play();
-      }, 10000);
+      }, 5000);
     };
 
     video.addEventListener('ended', handleVideoEnd);
