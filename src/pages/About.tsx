@@ -27,15 +27,15 @@ const About = () => {
       {/* Hero Section */}
       <section className="relative py-20 bg-primary text-primary-foreground overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-secondary to-black opacity-95" />
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold rounded-full blur-[100px]" style={{ animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }} />
+        <div className="absolute inset-0 opacity-10 hidden md:block">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-96 md:h-96 bg-gold rounded-full blur-[60px] md:blur-[100px]" style={{ animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }} />
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <h1 className="text-5xl font-serif font-bold text-primary-foreground">Meet Our <span className="text-gold">Team</span></h1>
             <div className="w-24 h-1 bg-gold mx-auto" />
             <p className="text-xl text-primary-foreground/90 font-light">
-              Expert barbers dedicated to making you <span className="gold-glow-text">look</span> and <span className="gold-glow-text">feel</span> your <span className="gold-glow-text">best</span>.
+              Expert barbers dedicated to making you <span className="text-gold md:gold-glow-text">look</span> and <span className="text-gold md:gold-glow-text">feel</span> your <span className="text-gold md:gold-glow-text">best</span>.
             </p>
           </div>
         </div>
@@ -44,26 +44,27 @@ const About = () => {
       {/* Team Members Section */}
       <section className="py-20 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-secondary to-black opacity-95" />
-        {/* Glowing Gold Effects */}
-        <div className="absolute inset-0 opacity-20 pointer-events-none">
-          <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold rounded-full blur-[120px]" style={{ animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }} />
-          <div className="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold rounded-full blur-[120px]" style={{ animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite 2s' }} />
+        {/* Glowing Gold Effects - Hidden on mobile for performance */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none hidden md:block">
+          <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-96 md:h-96 bg-gold rounded-full blur-[60px] md:blur-[120px]" />
+          <div className="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-96 md:h-96 bg-gold rounded-full blur-[60px] md:blur-[120px]" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* Therapon */}
-            <Card className="border-2 border-gold/50 hover:border-gold transition-all duration-300 overflow-hidden hover:shadow-2xl shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] bg-card animate-slideInLeft">
+            <Card className="border-2 border-gold/50 hover:border-gold transition-all duration-300 overflow-hidden md:hover:shadow-2xl shadow-gold/20 md:shadow-[0_0_30px_rgba(212,175,55,0.3)] md:hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] bg-card md:animate-slideInLeft">
               <CardContent className="p-0">
                 <div className="aspect-square overflow-hidden">
                   <img 
                     src={theraponImg} 
                     alt="Therapon Constantinou - Master Barber" 
-                    className="w-full h-full object-cover image-zoom"
+                    className="w-full h-full object-cover md:image-zoom"
+                    loading="lazy"
                   />
                 </div>
                 <div className="p-6 space-y-4 text-center">
                   <h3 className="text-2xl font-serif font-bold text-foreground">Therapon Constantinou</h3>
-                  <p className="text-muted-foreground font-light"><span className="gold-glow-text">Master</span> Barber</p>
+                  <p className="text-muted-foreground font-light"><span className="text-gold md:gold-glow-text">Master</span> Barber</p>
                   <button 
                     className="premium-button w-full"
                     onClick={() => handleBooking("Therapon")}
@@ -75,18 +76,19 @@ const About = () => {
             </Card>
 
             {/* Panagiotis */}
-            <Card className="border-2 border-gold/50 hover:border-gold transition-all duration-300 overflow-hidden hover:shadow-2xl shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] bg-card animate-slideInRight">
+            <Card className="border-2 border-gold/50 hover:border-gold transition-all duration-300 overflow-hidden md:hover:shadow-2xl shadow-gold/20 md:shadow-[0_0_30px_rgba(212,175,55,0.3)] md:hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] bg-card md:animate-slideInRight">
               <CardContent className="p-0">
                 <div className="aspect-square overflow-hidden">
                   <img 
                     src={panagiotisImg} 
                     alt="Panagiotis Charalambous - Master Barber" 
-                    className="w-full h-full object-cover image-zoom"
+                    className="w-full h-full object-cover md:image-zoom"
+                    loading="lazy"
                   />
                 </div>
                 <div className="p-6 space-y-4 text-center">
                   <h3 className="text-2xl font-serif font-bold text-foreground">Panagiotis Charalambous</h3>
-                  <p className="text-muted-foreground font-light"><span className="gold-glow-text">Master</span> Barber</p>
+                  <p className="text-muted-foreground font-light"><span className="text-gold md:gold-glow-text">Master</span> Barber</p>
                   <button 
                     className="premium-button w-full"
                     onClick={() => handleBooking("Panagiotis")}
