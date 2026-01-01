@@ -10,8 +10,6 @@ import About from "./pages/About";
 import BookAppointment from "./pages/BookAppointment";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import ChristmasModal from "./components/ChristmasModal";
-import Snowflakes from "./components/Snowflakes";
 
 const queryClient = new QueryClient();
 const USE_HASH_ROUTER = import.meta.env.BASE_URL !== "/";
@@ -21,12 +19,9 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <Snowflakes />
       {USE_HASH_ROUTER ? (
         <HashRouter>
-          <ChristmasModal />
           <div className="min-h-screen flex flex-col">
-            <div className="christmas-lights" />
             <Navigation />
             <main className="flex-1">
               <Routes>
@@ -43,9 +38,7 @@ const App = () => (
         </HashRouter>
       ) : (
         <BrowserRouter>
-          <ChristmasModal />
           <div className="min-h-screen flex flex-col">
-            <div className="christmas-lights" />
             <Navigation />
             <main className="flex-1">
               <Routes>
