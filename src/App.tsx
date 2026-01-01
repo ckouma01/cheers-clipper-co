@@ -21,7 +21,7 @@ const App = () => (
       <Sonner />
       {USE_HASH_ROUTER ? (
         <HashRouter>
-          <div className="min-h-screen flex flex-col">
+          <div className="min-h-screen flex flex-col bg-primary">
             <Navigation />
             <main className="flex-1">
               <Routes>
@@ -38,7 +38,7 @@ const App = () => (
         </HashRouter>
       ) : (
         <BrowserRouter>
-          <div className="min-h-screen flex flex-col">
+          <div className="min-h-screen flex flex-col bg-primary">
             <Navigation />
             <main className="flex-1">
               <Routes>
