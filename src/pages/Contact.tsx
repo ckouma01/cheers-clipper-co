@@ -60,13 +60,14 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen py-20 bg-primary relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-secondary to-black opacity-95" />
+      <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16 space-y-4">
-          <h1 className="text-5xl font-serif font-bold text-foreground">Contact <span className="text-gold">Us</span></h1>
+          <h1 className="text-5xl font-serif font-bold text-primary-foreground">Contact <span className="text-gold">Us</span></h1>
           <div className="w-24 h-1 bg-gold mx-auto" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
+          <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto font-light">
             Have questions or want to get in touch? We'd love to hear from you!
           </p>
         </div>
