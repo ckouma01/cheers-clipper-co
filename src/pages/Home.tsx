@@ -3,7 +3,7 @@ import { Scissors, Clock, Award, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Gallery from "@/components/Gallery";
-import logo from "@/assets/christmas-logo.png";
+import logo from "@/assets/cheers-logo-new.png";
 import heroLogo from "@/assets/hero-logo.png";
 import heroVideo from "@/assets/hero-video.mp4";
 import { useState, useRef, useEffect } from "react";
