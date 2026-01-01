@@ -33,7 +33,7 @@ const Navigation = () => {
                 key={item.path}
                 to={item.path}
                 className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:scale-105 ${
-                  isActive(item.path) ? "text-gold" : "text-foreground"
+                  isActive(item.path) ? "text-gold" : "text-primary-foreground"
                 }`}
               >
                 {item.name}
@@ -43,7 +43,7 @@ const Navigation = () => {
               href="https://www.instagram.com/cheers_barbershop/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:text-gold transition-all duration-300 hover:scale-110"
+              className="text-primary-foreground hover:text-gold transition-all duration-300 hover:scale-110"
               aria-label="Visit our Instagram"
             >
               <Instagram size={24} />
@@ -53,7 +53,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-foreground hover:text-gold transition-colors"
+            className="md:hidden p-2 text-primary-foreground hover:text-gold transition-colors"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -69,7 +69,7 @@ const Navigation = () => {
                   to={item.path}
                   onClick={() => setIsOpen(false)}
                   className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 ${
-                    isActive(item.path) ? "text-gold" : "text-foreground"
+                    isActive(item.path) ? "text-gold" : "text-primary-foreground"
                   }`}
                 >
                   {item.name}
@@ -80,7 +80,7 @@ const Navigation = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 text-foreground flex items-center gap-2"
+                className="text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 text-primary-foreground flex items-center gap-2"
               >
                 <Instagram size={20} />
                 INSTAGRAM
