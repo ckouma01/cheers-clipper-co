@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import theraponImg from "@/assets/therapon.png";
 import panagiotisImg from "@/assets/panagiotis.png";
+import kwstasImg from "@/assets/kwstas.jpg";
 import ChallengeModal from "@/components/ChallengeModal";
 import { useChallengeModal } from "@/hooks/use-challenge-modal";
 
@@ -14,7 +15,8 @@ const About = () => {
 
   const bookingUrls = {
     Therapon: "https://therapis27.setmore.com/book?step=time-slot&products=sba9048736151f81ca2874b726a1ea9f116c7acae&type=service&staff=rb2061606986986400&staffSelected=true",
-    Panagiotis: "https://therapis27.setmore.com/book?step=time-slot&products=aa7a5649-cf28-416d-9a06-29a5015bf9db&type=service&staff=L7vxoUGj0ZTDOvSu179MxJiP4cQyJI0t&staffSelected=true"
+    Panagiotis: "https://therapis27.setmore.com/book?step=time-slot&products=aa7a5649-cf28-416d-9a06-29a5015bf9db&type=service&staff=L7vxoUGj0ZTDOvSu179MxJiP4cQyJI0t&staffSelected=true",
+    Kwstas: "https://therapis27.setmore.com/services/f858af00-4ccf-4a29-8576-10af07b32eb0"
   };
 
   const handleBooking = (barberName: string) => {
@@ -50,7 +52,7 @@ const About = () => {
           <div className="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-96 md:h-96 bg-gold rounded-full blur-[60px] md:blur-[120px]" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Therapon */}
             <Card className="border-2 border-gold/50 hover:border-gold transition-all duration-300 overflow-hidden md:hover:shadow-2xl shadow-gold/20 md:shadow-[0_0_30px_rgba(212,175,55,0.3)] md:hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] bg-card md:animate-slideInLeft">
               <CardContent className="p-0">
@@ -76,7 +78,7 @@ const About = () => {
             </Card>
 
             {/* Panagiotis */}
-            <Card className="border-2 border-gold/50 hover:border-gold transition-all duration-300 overflow-hidden md:hover:shadow-2xl shadow-gold/20 md:shadow-[0_0_30px_rgba(212,175,55,0.3)] md:hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] bg-card md:animate-slideInRight">
+            <Card className="border-2 border-gold/50 hover:border-gold transition-all duration-300 overflow-hidden md:hover:shadow-2xl shadow-gold/20 md:shadow-[0_0_30px_rgba(212,175,55,0.3)] md:hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] bg-card">
               <CardContent className="p-0">
                 <div className="aspect-square overflow-hidden">
                   <img 
@@ -94,6 +96,30 @@ const About = () => {
                     onClick={() => handleBooking("Panagiotis")}
                   >
                     Book with Panagiotis
+                  </button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Kwstas */}
+            <Card className="border-2 border-gold/50 hover:border-gold transition-all duration-300 overflow-hidden md:hover:shadow-2xl shadow-gold/20 md:shadow-[0_0_30px_rgba(212,175,55,0.3)] md:hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] bg-card">
+              <CardContent className="p-0">
+                <div className="aspect-square overflow-hidden">
+                  <img 
+                    src={kwstasImg} 
+                    alt="Kwstas Liakos - Master Barber" 
+                    className="w-full h-full object-cover md:image-zoom"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-6 space-y-4 text-center">
+                  <h3 className="text-2xl font-serif font-bold text-foreground">Kwstas Liakos</h3>
+                  <p className="text-muted-foreground font-light"><span className="text-gold md:gold-glow-text">Master</span> Barber</p>
+                  <button 
+                    className="premium-button w-full"
+                    onClick={() => handleBooking("Kwstas")}
+                  >
+                    Book with Kwstas
                   </button>
                 </div>
               </CardContent>
