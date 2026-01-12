@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-export const useChallengeModal = () => {
-  const [showChallengeModal, setShowChallengeModal] = useState(false);
+export const useWelcomeModal = () => {
+  const [showWelcomeModal, setShowWelcomeModal] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
 
   useEffect(() => {
@@ -30,22 +30,22 @@ export const useChallengeModal = () => {
   useEffect(() => {
     if (!hasInteracted) return;
 
-    // Check if user has already seen the challenge modal this session
-    const hasSeenChallengeModal = sessionStorage.getItem("challengeModalSeen");
-    if (!hasSeenChallengeModal) {
+    // Check if user has already seen the welcome modal this session
+    const hasSeenWelcomeModal = sessionStorage.getItem("welcomeKwstasModalSeen");
+    if (!hasSeenWelcomeModal) {
       const timer = setTimeout(() => {
-        setShowChallengeModal(true);
+        setShowWelcomeModal(true);
       }, 200);
       return () => clearTimeout(timer);
     }
   }, [hasInteracted]);
 
-  const handleChallengeClose = () => {
-    setShowChallengeModal(false);
+  const handleWelcomeClose = () => {
+    setShowWelcomeModal(false);
   };
 
   return {
-    showChallengeModal,
-    handleChallengeClose,
+    showWelcomeModal,
+    handleWelcomeClose,
   };
 };
