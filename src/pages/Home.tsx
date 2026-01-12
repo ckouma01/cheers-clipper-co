@@ -141,7 +141,7 @@ const Home = () => {
               Where tradition meets style. Experience the art of classic and modern grooming since 2019.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Link to="/book">
+              <Link to="/about">
                 <Button variant="hero" size="lg" className="w-full sm:w-auto text-lg">
                   Book Your Appointment
                 </Button>
