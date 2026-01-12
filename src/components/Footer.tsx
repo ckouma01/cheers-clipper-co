@@ -57,6 +57,7 @@ const Footer = () => {
                 <div className="flex flex-col">
                   <span>Panagiotis: 99246036</span>
                   <span>Therapon: 96557340</span>
+                  <span>Kwstas: 94041227</span>
                 </div>
               </li>
               <li className="flex items-start gap-2 text-sm font-light">
