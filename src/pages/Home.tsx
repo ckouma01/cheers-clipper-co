@@ -7,6 +7,8 @@ import logo from "@/assets/cheers-logo-new.png";
 import heroLogo from "@/assets/hero-logo.png";
 import heroVideo from "@/assets/hero-video.mp4";
 import { useState, useRef, useEffect } from "react";
+import WelcomeKwstasModal from "@/components/WelcomeKwstasModal";
+import { useWelcomeModal } from "@/hooks/use-welcome-modal";
 
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
@@ -14,6 +16,7 @@ const Home = () => {
   const servicesSection = useScrollAnimation();
   const whyChooseSection = useScrollAnimation();
   const ctaSection = useScrollAnimation();
+  const { showWelcomeModal, handleWelcomeClose } = useWelcomeModal();
   
   const [showVideo, setShowVideo] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -253,6 +256,11 @@ const Home = () => {
           </Link>
         </div>
       </section>
+
+      <WelcomeKwstasModal 
+        isOpen={showWelcomeModal} 
+        onClose={handleWelcomeClose} 
+      />
     </div>
   );
 };

@@ -1,23 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import theraponImg from "@/assets/therapon.png";
 import panagiotisImg from "@/assets/panagiotis.png";
 import kwstasImg from "@/assets/kwstas.jpg";
-import ChallengeModal from "@/components/ChallengeModal";
-import { useChallengeModal } from "@/hooks/use-challenge-modal";
 
 const About = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [selectedBarber, setSelectedBarber] = useState("");
-  const { showChallengeModal, handleChallengeClose } = useChallengeModal();
+  const kwstasRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   const bookingUrls = {
     Therapon: "https://therapis27.setmore.com/book?step=time-slot&products=sba9048736151f81ca2874b726a1ea9f116c7acae&type=service&staff=rb2061606986986400&staffSelected=true",
     Panagiotis: "https://therapis27.setmore.com/book?step=time-slot&products=aa7a5649-cf28-416d-9a06-29a5015bf9db&type=service&staff=L7vxoUGj0ZTDOvSu179MxJiP4cQyJI0t&staffSelected=true",
     Kwstas: "https://therapis27.setmore.com/services/f858af00-4ccf-4a29-8576-10af07b32eb0"
   };
+
+  // Scroll to Kwstas card when navigating with scrollTo=kwstas
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get('scrollTo') === 'kwstas' && kwstasRef.current) {
+      setTimeout(() => {
+        kwstasRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 300);
+    }
+  }, [location.search]);
 
   const handleBooking = (barberName: string) => {
     setSelectedBarber(barberName);
@@ -102,7 +112,10 @@ const About = () => {
             </Card>
 
             {/* Kwstas */}
-            <Card className="border-2 border-gold/50 hover:border-gold transition-all duration-300 overflow-hidden md:hover:shadow-2xl shadow-gold/20 md:shadow-[0_0_30px_rgba(212,175,55,0.3)] md:hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] bg-card">
+            <Card 
+              ref={kwstasRef}
+              className="border-2 border-gold/50 hover:border-gold transition-all duration-300 overflow-hidden md:hover:shadow-2xl shadow-gold/20 md:shadow-[0_0_30px_rgba(212,175,55,0.3)] md:hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] bg-card"
+            >
               <CardContent className="p-0">
                 <div className="aspect-square overflow-hidden">
                   <img 
@@ -146,11 +159,6 @@ const About = () => {
           </div>
         </DialogContent>
       </Dialog>
-
-      <ChallengeModal 
-        isOpen={showChallengeModal} 
-        onClose={handleChallengeClose} 
-      />
     </div>
   );
 };
