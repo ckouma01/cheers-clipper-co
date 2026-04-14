@@ -177,7 +177,7 @@ const Home = () => {
                     <service.icon className="w-8 h-8 text-gold" />
                   </div>
                   <h3 className="text-xl font-serif font-bold text-primary-foreground">{service.title}</h3>
-                  <p className="text-muted-foreground text-sm">{service.description}</p>
+                  <p className="text-primary-foreground/60 text-sm">{service.description}</p>
                   <p className="text-2xl font-bold text-gold">{service.price}</p>
                 </CardContent>
               </Card>
