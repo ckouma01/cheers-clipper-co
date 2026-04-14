@@ -7,7 +7,7 @@ const BookAppointment = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-primary-foreground mb-4">
+            <h1 className="text-4xl md:text-5xl font-sans font-bold text-primary-foreground mb-4">
               Book Your <span className="text-gold">Appointment</span>
             </h1>
             <div className="w-24 h-1 bg-gold mx-auto mb-4" />

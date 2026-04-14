@@ -44,7 +44,7 @@ const About = () => {
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h1 className="text-5xl font-serif font-bold text-primary-foreground">Select your <span className="text-gold">Barber</span></h1>
+            <h1 className="text-5xl font-sans font-bold text-primary-foreground">Select your <span className="text-gold">Barber</span></h1>
             <div className="w-24 h-1 bg-gold mx-auto" />
             <p className="text-xl text-primary-foreground/90 font-light">
               Expert barbers dedicated to making you <span className="text-gold md:gold-glow-text">look</span> and <span className="text-gold md:gold-glow-text">feel</span> your <span className="text-gold md:gold-glow-text">best</span>.
@@ -75,7 +75,7 @@ const About = () => {
                   />
                 </div>
                 <div className="p-6 space-y-4 text-center">
-                  <h3 className="text-2xl font-serif font-bold text-foreground">Therapon Constantinou</h3>
+                  <h3 className="text-2xl font-sans font-bold text-foreground">Therapon Constantinou</h3>
                   <p className="text-muted-foreground font-light"><span className="text-gold md:gold-glow-text">Master</span> Barber</p>
                   <button 
                     className="premium-button w-full"
@@ -99,7 +99,7 @@ const About = () => {
                   />
                 </div>
                 <div className="p-6 space-y-4 text-center">
-                  <h3 className="text-2xl font-serif font-bold text-foreground">Panagiotis Charalambous</h3>
+                  <h3 className="text-2xl font-sans font-bold text-foreground">Panagiotis Charalambous</h3>
                   <p className="text-muted-foreground font-light"><span className="text-gold md:gold-glow-text">Master</span> Barber</p>
                   <button 
                     className="premium-button w-full"
@@ -126,7 +126,7 @@ const About = () => {
                   />
                 </div>
                 <div className="p-6 space-y-4 text-center">
-                  <h3 className="text-2xl font-serif font-bold text-foreground">Kwstas Liakos</h3>
+                  <h3 className="text-2xl font-sans font-bold text-foreground">Kwstas Liakos</h3>
                   <p className="text-muted-foreground font-light"><span className="text-gold md:gold-glow-text">Master</span> Barber</p>
                   <button 
                     className="premium-button w-full"

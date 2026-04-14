@@ -139,7 +139,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black via-secondary to-black opacity-95" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif font-bold mb-4 text-primary-foreground">Our Services</h2>
+            <h2 className="text-4xl font-sans font-bold mb-4 text-primary-foreground">Our Services</h2>
             <div className="w-24 h-1 bg-gold mx-auto mb-6" />
             <p className="text-lg text-primary-foreground/70 max-w-2xl mx-auto font-light">
               Premium grooming services tailored to your style. All services include hair washing.
@@ -153,7 +153,7 @@ const Home = () => {
                   <div className="w-16 h-16 mx-auto bg-black rounded-full flex items-center justify-center border-2 border-gold/30">
                     <service.icon className="w-8 h-8 text-gold" />
                   </div>
-                  <h3 className="text-xl font-serif font-bold text-primary-foreground">{service.title}</h3>
+                  <h3 className="text-xl font-sans font-bold text-primary-foreground">{service.title}</h3>
                   <p className="text-primary-foreground/60 text-sm">{service.description}</p>
                   <p className="text-2xl font-bold text-gold">{service.price}</p>
                 </CardContent>
@@ -176,7 +176,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black via-secondary to-black opacity-90" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-serif font-bold text-center mb-12 text-primary-foreground">
+            <h2 className="text-4xl font-sans font-bold text-center mb-12 text-primary-foreground">
               Why Choose <span className="text-gold">Cheers</span>?
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -184,7 +184,7 @@ const Home = () => {
                 <div className="w-12 h-12 bg-gold rounded-full mx-auto flex items-center justify-center">
                   <Award className="w-6 h-6 text-black" />
                 </div>
-                <h3 className="text-xl font-serif font-semibold text-primary-foreground">Expert Barbers</h3>
+                <h3 className="text-xl font-sans font-semibold text-primary-foreground">Expert Barbers</h3>
                 <p className="text-primary-foreground/70 font-light">
                   Skilled professionals with years of experience in classic and modern styles
                 </p>
@@ -193,7 +193,7 @@ const Home = () => {
                 <div className="w-12 h-12 bg-gold rounded-full mx-auto flex items-center justify-center">
                   <Clock className="w-6 h-6 text-black" />
                 </div>
-                <h3 className="text-xl font-serif font-semibold text-primary-foreground">Convenient Hours</h3>
+                <h3 className="text-xl font-sans font-semibold text-primary-foreground">Convenient Hours</h3>
                 <p className="text-primary-foreground/70 font-light">
                   Open 6 days a week with flexible appointment times to fit your schedule
                 </p>
@@ -202,7 +202,7 @@ const Home = () => {
                 <div className="w-12 h-12 bg-gold rounded-full mx-auto flex items-center justify-center">
                   <Users className="w-6 h-6 text-black" />
                 </div>
-                <h3 className="text-xl font-serif font-semibold text-primary-foreground">Relaxed Atmosphere</h3>
+                <h3 className="text-xl font-sans font-semibold text-primary-foreground">Relaxed Atmosphere</h3>
                 <p className="text-primary-foreground/70 font-light">
                   Unwind in a comfortable, welcoming environment designed for your relaxation
                 </p>
@@ -222,7 +222,7 @@ const Home = () => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold rounded-full blur-3xl" />
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-4xl font-serif font-bold mb-6">Ready for a <span className="text-gold">Fresh Look</span>?</h2>
+          <h2 className="text-4xl font-sans font-bold mb-6">Ready for a <span className="text-gold">Fresh Look</span>?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-foreground/90 font-light">
             Book your appointment today and experience the Cheers difference
           </p>

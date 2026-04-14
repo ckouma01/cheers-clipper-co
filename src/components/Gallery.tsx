@@ -27,7 +27,7 @@ const Gallery = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-black via-secondary to-black opacity-95" />
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-serif font-bold mb-4 text-primary-foreground">Gallery</h2>
+          <h2 className="text-4xl font-sans font-bold mb-4 text-primary-foreground">Gallery</h2>
           <div className="w-24 h-1 bg-gold mx-auto mb-6" />
           <p className="text-lg text-primary-foreground/70 max-w-2xl mx-auto font-light">
             Take a look inside our shop and see our work in action
