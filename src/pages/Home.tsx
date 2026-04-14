@@ -4,9 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Gallery from "@/components/Gallery";
 import logo from "@/assets/cheers-logo-new.png";
-import heroLogo from "@/assets/hero-logo.png";
 import heroVideo from "@/assets/hero-video.mp4";
-import { useState, useRef, useEffect } from "react";
+import { useRef } from "react";
 
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
@@ -16,26 +15,8 @@ const Home = () => {
   const ctaSection = useScrollAnimation();
   
   
-  const [showVideo, setShowVideo] = useState(true);
+  
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const handleVideoEnd = () => {
-      setShowVideo(false);
-      // After 10 seconds of showing the image, switch back to video
-      setTimeout(() => {
-        setShowVideo(true);
-        video.currentTime = 0;
-        video.play();
-      }, 5000);
-    };
-
-    video.addEventListener('ended', handleVideoEnd);
-    return () => video.removeEventListener('ended', handleVideoEnd);
-  }, []);
 
   const services = [
     {
@@ -70,20 +51,16 @@ const Home = () => {
       <section className="relative bg-primary text-primary-foreground py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-secondary to-black opacity-95" />
         
-        {/* Video/Image Background */}
+        {/* Video Background */}
         <div className="absolute inset-0">
           <video
             ref={videoRef}
             src={heroVideo}
             muted
             autoPlay
+            loop
             playsInline
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${showVideo ? 'opacity-30' : 'opacity-0'}`}
-          />
-          <img 
-            src={heroLogo} 
-            alt="" 
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${showVideo ? 'opacity-0' : 'opacity-20'}`}
+            className="absolute inset-0 w-full h-full object-cover opacity-30"
           />
         </div>
         
