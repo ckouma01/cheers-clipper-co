@@ -23,7 +23,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-serif font-bold mb-4 text-gold">Quick Links</h4>
+            <h4 className="font-sans font-bold mb-4 text-gold">Quick Links</h4>
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-sm hover:text-gold transition-colors font-light">
@@ -50,7 +50,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-serif font-bold mb-4 text-gold">Contact</h4>
+            <h4 className="font-sans font-bold mb-4 text-gold">Contact</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm font-light">
                 <Phone className="w-4 h-4 mt-0.5 text-gold flex-shrink-0" />
@@ -73,7 +73,7 @@ const Footer = () => {
 
           {/* Hours */}
           <div>
-            <h4 className="font-serif font-bold mb-4 text-gold flex items-center gap-2">
+            <h4 className="font-sans font-bold mb-4 text-gold flex items-center gap-2">
               <Clock className="w-4 h-4" />
               Hours
             </h4>
