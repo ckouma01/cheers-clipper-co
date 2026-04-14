@@ -74,9 +74,9 @@ const Contact = () => {
 
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8">
           {/* Contact Form */}
-          <Card className="border-2 hover:border-gold/50 transition-all">
+          <Card className="border-2 border-gold/20 hover:border-gold/50 transition-all bg-black/40 backdrop-blur-sm">
             <CardContent className="pt-6">
-              <h2 className="text-2xl font-serif font-bold mb-6 text-foreground">Send Us a Message</h2>
+              <h2 className="text-2xl font-serif font-bold mb-6 text-primary-foreground">Send Us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="contact-name">Name *</Label>
@@ -123,9 +123,9 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-6">
             {/* Contact Details */}
-            <Card className="border-2 hover:border-gold/50 transition-all">
+            <Card className="border-2 border-gold/20 hover:border-gold/50 transition-all bg-black/40 backdrop-blur-sm">
               <CardContent className="pt-6 space-y-6">
-                <h2 className="text-2xl font-serif font-bold text-foreground">Get In Touch</h2>
+                <h2 className="text-2xl font-serif font-bold text-primary-foreground">Get In Touch</h2>
                 {contactInfo.map((info) => (
                   <a
                     key={info.title}
@@ -138,8 +138,8 @@ const Contact = () => {
                       <info.icon className="w-6 h-6 text-black" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1">{info.title}</h3>
-                      <p className="text-muted-foreground">{info.content}</p>
+                      <h3 className="font-semibold text-primary-foreground mb-1">{info.title}</h3>
+                      <p className="text-primary-foreground/70">{info.content}</p>
                     </div>
                   </a>
                 ))}
@@ -147,25 +147,25 @@ const Contact = () => {
             </Card>
 
             {/* Hours */}
-            <Card className="border-2 bg-muted/30 hover:border-gold/50 transition-all">
+            <Card className="border-2 border-gold/20 hover:border-gold/50 transition-all bg-black/40 backdrop-blur-sm">
               <CardContent className="pt-6 space-y-4">
                 <div className="flex items-center gap-2 mb-4">
                   <Clock className="w-6 h-6 text-gold" />
-                  <h2 className="text-2xl font-serif font-bold text-foreground">Hours of Operation</h2>
+                  <h2 className="text-2xl font-serif font-bold text-primary-foreground">Hours of Operation</h2>
                 </div>
                 {hours.map((schedule) => (
-                  <div key={schedule.day} className="flex justify-between items-center py-2 border-b border-border last:border-0">
-                    <span className="font-semibold text-foreground">{schedule.day}</span>
-                    <span className="text-muted-foreground">{schedule.time}</span>
+                  <div key={schedule.day} className="flex justify-between items-center py-2 border-b border-primary-foreground/10 last:border-0">
+                    <span className="font-semibold text-primary-foreground">{schedule.day}</span>
+                    <span className="text-primary-foreground/70">{schedule.time}</span>
                   </div>
                 ))}
               </CardContent>
             </Card>
 
             {/* Map Location */}
-            <Card className="border-2 hover:border-gold/50 transition-all">
+            <Card className="border-2 border-gold/20 hover:border-gold/50 transition-all bg-black/40 backdrop-blur-sm">
               <CardContent className="pt-6">
-                <h2 className="text-2xl font-serif font-bold text-foreground mb-4">Find Us</h2>
+                <h2 className="text-2xl font-serif font-bold text-primary-foreground mb-4">Find Us</h2>
                 <div className="w-full h-[400px] rounded-lg overflow-hidden">
                   <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1004.0543489844458!2d33.38439852314166!3d35.10737252792991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14de191070b5d3a1%3A0x89b149005d66f662!2sCHEERS%20BARBERSHOP!5e1!3m2!1sel!2s!4v1762971432941!5m2!1sel!2s" 
