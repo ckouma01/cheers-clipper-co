@@ -135,7 +135,7 @@ const Home = () => {
                 <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
               </svg>
             </a>
-            <h1 className="text-5xl md:text-6xl font-serif font-bold tracking-tight">
+            <h1 className="text-5xl md:text-6xl font-sans font-bold tracking-tight">
               Welcome to <span className="font-script text-gold text-6xl md:text-7xl inline-block animate-revealText opacity-0">Cheers</span>
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-2xl mx-auto font-light">
@@ -158,24 +158,25 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section ref={servicesSection.ref} className={`py-20 bg-background transition-all duration-[4500ms] ${servicesSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <div className="container mx-auto px-4">
+      <section ref={servicesSection.ref} className={`py-20 bg-primary relative overflow-hidden transition-all duration-[4500ms] ${servicesSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-secondary to-black opacity-95" />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif font-bold mb-4 text-foreground">Our Services</h2>
+            <h2 className="text-4xl font-serif font-bold mb-4 text-primary-foreground">Our Services</h2>
             <div className="w-24 h-1 bg-gold mx-auto mb-6" />
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
+            <p className="text-lg text-primary-foreground/70 max-w-2xl mx-auto font-light">
               Premium grooming services tailored to your style. All services include hair washing.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {services.map((service, index) => (
-              <Card key={service.title} className={`border-2 hover:border-gold transition-all hover:shadow-2xl hover:shadow-gold/20 bg-card ${servicesSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: `${index * 200}ms`, transitionDuration: '4000ms' }}>
+              <Card key={service.title} className={`border-2 border-gold/20 hover:border-gold transition-all hover:shadow-2xl hover:shadow-gold/20 bg-black/40 backdrop-blur-sm ${servicesSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: `${index * 200}ms`, transitionDuration: '4000ms' }}>
                 <CardContent className="pt-6 text-center space-y-4">
                   <div className="w-16 h-16 mx-auto bg-black rounded-full flex items-center justify-center border-2 border-gold/30">
                     <service.icon className="w-8 h-8 text-gold" />
                   </div>
-                  <h3 className="text-xl font-serif font-bold text-foreground">{service.title}</h3>
+                  <h3 className="text-xl font-serif font-bold text-primary-foreground">{service.title}</h3>
                   <p className="text-muted-foreground text-sm">{service.description}</p>
                   <p className="text-2xl font-bold text-gold">{service.price}</p>
                 </CardContent>

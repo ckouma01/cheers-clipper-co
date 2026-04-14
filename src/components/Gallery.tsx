@@ -20,15 +20,16 @@ const Gallery = () => {
   return (
     <section
       ref={gallerySection.ref}
-      className={`py-20 bg-background transition-all duration-[4500ms] ${
+      className={`py-20 bg-primary relative overflow-hidden transition-all duration-[4500ms] ${
         gallerySection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
-      <div className="container mx-auto px-4">
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-secondary to-black opacity-95" />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-serif font-bold mb-4 text-foreground">Gallery</h2>
+          <h2 className="text-4xl font-serif font-bold mb-4 text-primary-foreground">Gallery</h2>
           <div className="w-24 h-1 bg-gold mx-auto mb-6" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
+          <p className="text-lg text-primary-foreground/70 max-w-2xl mx-auto font-light">
             Take a look inside our shop and see our work in action
           </p>
         </div>
