@@ -195,10 +195,11 @@ const Home = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section ref={whyChooseSection.ref} className={`py-20 bg-secondary/30 transition-all duration-[4500ms] ${whyChooseSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <div className="container mx-auto px-4">
+      <section ref={whyChooseSection.ref} className={`py-20 bg-primary relative overflow-hidden transition-all duration-[4500ms] ${whyChooseSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-secondary to-black opacity-90" />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-serif font-bold text-center mb-12 text-foreground">
+            <h2 className="text-4xl font-serif font-bold text-center mb-12 text-primary-foreground">
               Why Choose <span className="text-gold">Cheers</span>?
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -206,8 +207,8 @@ const Home = () => {
                 <div className="w-12 h-12 bg-gold rounded-full mx-auto flex items-center justify-center">
                   <Award className="w-6 h-6 text-black" />
                 </div>
-                <h3 className="text-xl font-serif font-semibold text-foreground">Expert Barbers</h3>
-                <p className="text-muted-foreground font-light">
+                <h3 className="text-xl font-serif font-semibold text-primary-foreground">Expert Barbers</h3>
+                <p className="text-primary-foreground/70 font-light">
                   Skilled professionals with years of experience in classic and modern styles
                 </p>
               </div>
@@ -215,8 +216,8 @@ const Home = () => {
                 <div className="w-12 h-12 bg-gold rounded-full mx-auto flex items-center justify-center">
                   <Clock className="w-6 h-6 text-black" />
                 </div>
-                <h3 className="text-xl font-serif font-semibold text-foreground">Convenient Hours</h3>
-                <p className="text-muted-foreground font-light">
+                <h3 className="text-xl font-serif font-semibold text-primary-foreground">Convenient Hours</h3>
+                <p className="text-primary-foreground/70 font-light">
                   Open 6 days a week with flexible appointment times to fit your schedule
                 </p>
               </div>
@@ -224,8 +225,8 @@ const Home = () => {
                 <div className="w-12 h-12 bg-gold rounded-full mx-auto flex items-center justify-center">
                   <Users className="w-6 h-6 text-black" />
                 </div>
-                <h3 className="text-xl font-serif font-semibold text-foreground">Relaxed Atmosphere</h3>
-                <p className="text-muted-foreground font-light">
+                <h3 className="text-xl font-serif font-semibold text-primary-foreground">Relaxed Atmosphere</h3>
+                <p className="text-primary-foreground/70 font-light">
                   Unwind in a comfortable, welcoming environment designed for your relaxation
                 </p>
               </div>
