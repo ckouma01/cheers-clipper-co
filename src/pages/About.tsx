@@ -75,7 +75,7 @@ const About = () => {
                   />
                 </div>
                 <div className="p-6 space-y-4 text-center">
-                  <h3 className="text-2xl font-sans font-bold text-foreground">Therapon Constantinou</h3>
+                  <h3 className="text-xl font-sans font-bold text-foreground whitespace-nowrap">Therapon Constantinou</h3>
                   <p className="text-muted-foreground font-light"><span className="text-gold md:gold-glow-text">Master</span> Barber</p>
                   <button 
                     className="premium-button w-full"
@@ -126,7 +126,7 @@ const About = () => {
                   />
                 </div>
                 <div className="p-6 space-y-4 text-center">
-                  <h3 className="text-2xl font-sans font-bold text-foreground">Kwstas Liakos</h3>
+                  <h3 className="text-xl font-sans font-bold text-foreground whitespace-nowrap">Kwstas Liakos</h3>
                   <p className="text-muted-foreground font-light"><span className="text-gold md:gold-glow-text">Master</span> Barber</p>
                   <button 
                     className="premium-button w-full"
