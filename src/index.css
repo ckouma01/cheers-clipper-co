@@ -26,7 +26,7 @@ All colors MUST be HSL.
     --muted: 0 0% 92%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 43 74% 49%;
+    --accent: 27 97% 50%;
     --accent-foreground: 0 0% 10%;
 
     --destructive: 0 84.2% 60.2%;
@@ -34,14 +34,14 @@ All colors MUST be HSL.
 
     --border: 0 0% 88%;
     --input: 0 0% 88%;
-    --ring: 43 74% 49%;
+    --ring: 27 97% 50%;
 
     --radius: 0.5rem;
     
     /* Custom elegant barbershop tokens */
-    --gold: 43 74% 49%;
-    --gold-light: 43 80% 65%;
-    --gold-dark: 43 60% 35%;
+    --gold: 27 97% 50%;
+    --gold-light: 27 97% 60%;
+    --gold-dark: 27 97% 40%;
     --black: 0 0% 8%;
     --white: 0 0% 100%;
     --cream: 40 30% 96%;
@@ -87,7 +87,7 @@ All colors MUST be HSL.
     --muted: 0 0% 20%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 43 74% 49%;
+    --accent: 27 97% 50%;
     --accent-foreground: 0 0% 8%;
 
     --destructive: 0 62.8% 30.6%;
@@ -95,7 +95,7 @@ All colors MUST be HSL.
 
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 43 74% 49%;
+    --ring: 27 97% 50%;
     
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -133,15 +133,15 @@ All colors MUST be HSL.
 
   @keyframes gold-glow {
     0%, 100% {
-      text-shadow: 0 0 10px hsl(43 74% 49% / 0.5), 0 0 20px hsl(43 74% 49% / 0.3);
+      text-shadow: 0 0 10px hsl(27 97% 50% / 0.5), 0 0 20px hsl(27 97% 50% / 0.3);
     }
     50% {
-      text-shadow: 0 0 20px hsl(43 74% 49% / 0.8), 0 0 30px hsl(43 74% 49% / 0.5), 0 0 40px hsl(43 80% 65% / 0.3);
+      text-shadow: 0 0 20px hsl(27 97% 50% / 0.8), 0 0 30px hsl(27 97% 50% / 0.5), 0 0 40px hsl(27 97% 60% / 0.3);
     }
   }
 
   .gold-glow-text {
-    color: hsl(43 74% 49%);
+    color: hsl(27 97% 50%);
     animation: gold-glow 3s ease-in-out infinite;
   }
 
@@ -174,7 +174,7 @@ All colors MUST be HSL.
     left: -50%;
     width: 200%;
     height: 200%;
-    background: conic-gradient(from 0deg, hsl(43 74% 49%), hsl(43 80% 65%), hsl(43 60% 35%), hsl(43 74% 49%));
+    background: conic-gradient(from 0deg, hsl(27 97% 50%), hsl(27 97% 60%), hsl(27 97% 40%), hsl(27 97% 50%));
     animation: rotate-border 8s linear infinite;
     z-index: -2;
   }
