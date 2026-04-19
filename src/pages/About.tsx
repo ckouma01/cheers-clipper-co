@@ -99,7 +99,8 @@ const About = () => {
             {/* Therapon */}
             <Card className="border-2 border-gold/50 hover:border-gold transition-all duration-300 overflow-hidden md:hover:shadow-2xl shadow-gold/20 md:shadow-[0_0_30px_rgba(212,175,55,0.3)] md:hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] bg-card md:animate-slideInLeft">
               <CardContent className="p-0">
-                <div className="aspect-square overflow-hidden">
+                <div className="relative aspect-square overflow-hidden">
+                  <SocialIcons barber="Therapon" />
                   <img 
                     src={theraponImg} 
                     alt="Therapon Constantinou - Master Barber" 
@@ -123,7 +124,8 @@ const About = () => {
             {/* Panagiotis */}
             <Card className="border-2 border-gold/50 hover:border-gold transition-all duration-300 overflow-hidden md:hover:shadow-2xl shadow-gold/20 md:shadow-[0_0_30px_rgba(212,175,55,0.3)] md:hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] bg-card">
               <CardContent className="p-0">
-                <div className="aspect-square overflow-hidden">
+                <div className="relative aspect-square overflow-hidden">
+                  <SocialIcons barber="Panagiotis" />
                   <img 
                     src={panagiotisImg} 
                     alt="Panagiotis Charalambous - Master Barber" 
@@ -150,7 +152,8 @@ const About = () => {
               className="border-2 border-gold/50 hover:border-gold transition-all duration-300 overflow-hidden md:hover:shadow-2xl shadow-gold/20 md:shadow-[0_0_30px_rgba(212,175,55,0.3)] md:hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] bg-card"
             >
               <CardContent className="p-0">
-                <div className="aspect-square overflow-hidden">
+                <div className="relative aspect-square overflow-hidden">
+                  <SocialIcons barber="Kwstas" />
                   <img 
                     src={kwstasImg} 
                     alt="Kwstas Liakos - Master Barber" 
