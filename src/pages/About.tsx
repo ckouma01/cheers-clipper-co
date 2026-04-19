@@ -3,9 +3,42 @@ import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Instagram, Phone } from "lucide-react";
 import theraponImg from "@/assets/therapon.png";
 import panagiotisImg from "@/assets/panagiotis.png";
 import kwstasImg from "@/assets/kwstas.jpg";
+
+const barberSocials = {
+  Therapon: { instagram: "https://instagram.com/therapis27", phone: "+35796557340" },
+  Panagiotis: { instagram: "https://instagram.com/panagioths.chr", phone: "+35799246036" },
+  Kwstas: { instagram: "https://instagram.com/kwstas.lkss", phone: "+35794041227" },
+};
+
+const SocialIcons = ({ barber }: { barber: keyof typeof barberSocials }) => {
+  const { instagram, phone } = barberSocials[barber];
+  return (
+    <div className="absolute top-3 left-3 z-10 flex gap-2">
+      <a
+        href={instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${barber} Instagram`}
+        onClick={(e) => e.stopPropagation()}
+        className="w-9 h-9 rounded-full bg-black/60 backdrop-blur-sm border border-gold/60 flex items-center justify-center text-gold hover:bg-gold hover:text-black transition-all duration-300"
+      >
+        <Instagram size={16} />
+      </a>
+      <a
+        href={`tel:${phone}`}
+        aria-label={`Call ${barber}`}
+        onClick={(e) => e.stopPropagation()}
+        className="w-9 h-9 rounded-full bg-black/60 backdrop-blur-sm border border-gold/60 flex items-center justify-center text-gold hover:bg-gold hover:text-black transition-all duration-300"
+      >
+        <Phone size={16} />
+      </a>
+    </div>
+  );
+};
 
 const About = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
