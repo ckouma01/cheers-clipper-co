@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Scissors, Clock, Award, Users, HelpCircle, Sparkles } from "lucide-react";
+import { Scissors, Clock, Award, Users, HelpCircle, Sparkles, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Gallery from "@/components/Gallery";
@@ -164,8 +164,8 @@ const Home = () => {
             <Card className={`border-2 border-gold/30 bg-black/20 backdrop-blur-sm overflow-hidden relative ${servicesSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '800ms', transitionDuration: '4000ms' }}>
               <div className="absolute inset-0 backdrop-blur-[2px] bg-black/30" />
               <CardContent className="pt-6 text-center space-y-4 relative z-10">
-                <div className="w-16 h-16 mx-auto bg-black/50 rounded-full flex items-center justify-center border-2 border-gold/40">
-                  <HelpCircle className="w-8 h-8 text-gold/80" />
+                <div className="w-16 h-16 mx-auto bg-black/50 rounded-full flex items-center justify-center border-2 border-gold/40 opacity-60 blur-[0.5px]">
+                  <Eye className="w-8 h-8 text-gold/60" />
                 </div>
                 <div className="relative">
                   <Sparkles className="w-4 h-4 text-gold/60 absolute -top-1 -right-2 animate-pulse" />
