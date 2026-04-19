@@ -35,7 +35,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      content: "Panagiotis: 99246036 | Therapon: 96557340",
+      content: "Panagiotis: 99246036 | Therapon: 96557340 | Kwstas: 94041227",
       link: "tel:99246036",
     },
     {
