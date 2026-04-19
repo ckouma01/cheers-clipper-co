@@ -48,12 +48,12 @@ All colors MUST be HSL.
     
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(0 0% 5%), hsl(0 0% 12%));
-    --gradient-gold: linear-gradient(135deg, hsl(43 74% 49%), hsl(43 60% 35%));
+    --gradient-gold: linear-gradient(135deg, hsl(27 97% 50%), hsl(27 97% 40%));
     --gradient-section: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 98%));
     
     /* Shadows */
     --shadow-elegant: 0 4px 30px hsla(0 0% 0% / 0.1);
-    --shadow-gold: 0 0 40px hsla(43 74% 49% / 0.3);
+    --shadow-gold: 0 0 40px hsla(27 97% 50% / 0.3);
     
     /* Transitions */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
