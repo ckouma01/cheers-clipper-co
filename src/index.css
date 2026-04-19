@@ -163,7 +163,7 @@ All colors MUST be HSL.
     cursor: pointer;
     overflow: hidden;
     transition: all 0.4s ease-in-out;
-    box-shadow: 0 0 20px rgba(184, 134, 11, 0.2);
+    box-shadow: 0 0 20px rgba(252, 115, 3, 0.2);
     z-index: 1;
   }
 
@@ -190,7 +190,7 @@ All colors MUST be HSL.
 
   .premium-button:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 40px rgba(184, 134, 11, 0.4);
+    box-shadow: 0 0 40px rgba(252, 115, 3, 0.4);
   }
 }
 
