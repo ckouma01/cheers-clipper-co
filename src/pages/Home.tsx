@@ -165,7 +165,11 @@ const Home = () => {
               <div className="absolute inset-0 backdrop-blur-[2px] bg-black/30" />
               <CardContent className="pt-6 text-center space-y-4 relative z-10">
                 <div className="w-16 h-16 mx-auto bg-black/50 rounded-full flex items-center justify-center border-2 border-gold/40 opacity-60 blur-[0.5px]">
-                  <Eye className="w-8 h-8 text-gold/60" />
+                  {/* Custom Brows Icon */}
+                  <svg viewBox="0 0 24 24" className="w-8 h-8 text-gold/60" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M4 14c3-2 6-2 8 0" />
+                    <path d="M12 14c2-2 5-2 8 0" />
+                  </svg>
                 </div>
                 <div className="relative">
                   <Sparkles className="w-4 h-4 text-gold/60 absolute -top-1 -right-2 animate-pulse" />
