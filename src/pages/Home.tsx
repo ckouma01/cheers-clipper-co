@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Scissors, Clock, Award, Users } from "lucide-react";
+import { Scissors, Clock, Award, Users, HelpCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Gallery from "@/components/Gallery";
@@ -146,7 +146,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
             {services.map((service, index) => (
               <Card key={service.title} className={`border-2 border-gold/20 hover:border-gold transition-all hover:shadow-2xl hover:shadow-gold/20 bg-black/40 backdrop-blur-sm ${servicesSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: `${index * 200}ms`, transitionDuration: '4000ms' }}>
                 <CardContent className="pt-6 text-center space-y-4">
@@ -159,6 +159,24 @@ const Home = () => {
                 </CardContent>
               </Card>
             ))}
+            
+            {/* Coming Soon - Brows Service */}
+            <Card className={`border-2 border-gold/30 bg-black/20 backdrop-blur-sm overflow-hidden relative ${servicesSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '800ms', transitionDuration: '4000ms' }}>
+              <div className="absolute inset-0 backdrop-blur-[2px] bg-black/30" />
+              <CardContent className="pt-6 text-center space-y-4 relative z-10">
+                <div className="w-16 h-16 mx-auto bg-black/50 rounded-full flex items-center justify-center border-2 border-gold/40">
+                  <HelpCircle className="w-8 h-8 text-gold/80" />
+                </div>
+                <div className="relative">
+                  <Sparkles className="w-4 h-4 text-gold/60 absolute -top-1 -right-2 animate-pulse" />
+                  <h3 className="text-xl font-sans font-bold text-primary-foreground/70 blur-[1px]">Brow Grooming</h3>
+                </div>
+                <p className="text-primary-foreground/40 text-sm italic">Something sharp is coming...</p>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/20 border border-gold/40">
+                  <span className="text-sm font-semibold text-gold">Coming Soon</span>
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
           <div className="text-center mt-12">
