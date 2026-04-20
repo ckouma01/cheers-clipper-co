@@ -24,7 +24,7 @@ const Navigation = () => {
       e.preventDefault();
       triggerCheers();
       setIsOpen(false);
-      setTimeout(() => navigate(path), 1000);
+      setTimeout(() => navigate(path), 1500);
     }
   };
 
