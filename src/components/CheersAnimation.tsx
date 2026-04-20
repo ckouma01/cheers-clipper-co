@@ -12,7 +12,7 @@ const CheersAnimation = () => {
   useEffect(() => {
     const handler = () => {
       setShow(true);
-      setTimeout(() => setShow(false), 1000);
+      setTimeout(() => setShow(false), 1500);
     };
     window.addEventListener(CHEERS_EVENT, handler);
     return () => window.removeEventListener(CHEERS_EVENT, handler);

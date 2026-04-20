@@ -66,7 +66,7 @@ const About = () => {
   const handleBooking = (barberName: string) => {
     setSelectedBarber(barberName);
     triggerCheers();
-    setTimeout(() => setIsBookingOpen(true), 1000);
+    setTimeout(() => setIsBookingOpen(true), 1500);
   };
 
   const barberImages: Record<string, string> = {

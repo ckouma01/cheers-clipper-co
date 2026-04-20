@@ -155,7 +155,7 @@ All colors MUST be HSL.
     overflow: hidden;
     white-space: nowrap;
     width: 0;
-    animation: handwrite 0.9s steps(40, end) forwards;
+    animation: handwrite 1.3s steps(40, end) forwards;
   }
 
   .premium-button {
