@@ -7,7 +7,7 @@ import { Instagram, Phone } from "lucide-react";
 import theraponImg from "@/assets/therapon.png";
 import panagiotisImg from "@/assets/panagiotis.png";
 import kwstasImg from "@/assets/kwstas.jpg";
-import CheersAnimation from "@/components/CheersAnimation";
+import { triggerCheers } from "@/components/CheersAnimation";
 
 const barberSocials = {
   Therapon: { instagram: "https://instagram.com/therapis27", phone: "+35796557340" },
@@ -44,7 +44,6 @@ const SocialIcons = ({ barber }: { barber: keyof typeof barberSocials }) => {
 const About = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [selectedBarber, setSelectedBarber] = useState("");
-  const [showCheers, setShowCheers] = useState(false);
   const kwstasRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
@@ -66,8 +65,14 @@ const About = () => {
 
   const handleBooking = (barberName: string) => {
     setSelectedBarber(barberName);
-    setShowCheers(true);
-    setTimeout(() => setIsBookingOpen(true), 2200);
+    triggerCheers();
+    setTimeout(() => setIsBookingOpen(true), 1000);
+  };
+
+  const barberImages: Record<string, string> = {
+    Therapon: theraponImg,
+    Panagiotis: panagiotisImg,
+    Kwstas: kwstasImg,
   };
 
   return (
@@ -180,23 +185,30 @@ const About = () => {
         </div>
       </section>
 
-      {/* Cheers Animation */}
-      <CheersAnimation show={showCheers} onComplete={() => setShowCheers(false)} />
-
       {/* Booking Dialog */}
       <Dialog open={isBookingOpen} onOpenChange={setIsBookingOpen}>
-        <DialogContent className="max-w-4xl h-[85vh] p-0 flex flex-col">
-          <DialogHeader className="px-6 pt-6 pb-2 shrink-0">
+        <DialogContent className="max-w-4xl h-[85vh] p-0 flex flex-col overflow-hidden">
+          {/* Faint barber portrait background */}
+          {selectedBarber && barberImages[selectedBarber] && (
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 bg-center bg-cover opacity-15"
+              style={{ backgroundImage: `url(${barberImages[selectedBarber]})` }}
+            />
+          )}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background/40" />
+          <DialogHeader className="px-6 pt-6 pb-2 shrink-0 relative z-10">
             <DialogTitle>Book Appointment with {selectedBarber}</DialogTitle>
             <DialogDescription className="sr-only">
               Schedule your appointment with {selectedBarber}
             </DialogDescription>
           </DialogHeader>
-          <div className="flex-1 px-6 pb-6 min-h-0">
+          <div className="flex-1 px-6 pb-6 min-h-0 relative z-10">
             <iframe
               src={bookingUrls[selectedBarber as keyof typeof bookingUrls]}
-              className="w-full h-full border-0 rounded"
+              className="w-full h-full border-0 rounded bg-transparent"
               title={`Book with ${selectedBarber}`}
+              allowTransparency
             />
           </div>
         </DialogContent>
