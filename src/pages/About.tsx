@@ -7,7 +7,7 @@ import { Instagram, Phone } from "lucide-react";
 import theraponImg from "@/assets/therapon.png";
 import panagiotisImg from "@/assets/panagiotis.png";
 import kwstasImg from "@/assets/kwstas.jpg";
-import CheersAnimation from "@/components/CheersAnimation";
+import { triggerCheers } from "@/components/CheersAnimation";
 
 const barberSocials = {
   Therapon: { instagram: "https://instagram.com/therapis27", phone: "+35796557340" },
@@ -44,7 +44,6 @@ const SocialIcons = ({ barber }: { barber: keyof typeof barberSocials }) => {
 const About = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [selectedBarber, setSelectedBarber] = useState("");
-  const [showCheers, setShowCheers] = useState(false);
   const kwstasRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
@@ -66,8 +65,14 @@ const About = () => {
 
   const handleBooking = (barberName: string) => {
     setSelectedBarber(barberName);
-    setShowCheers(true);
-    setTimeout(() => setIsBookingOpen(true), 2200);
+    triggerCheers();
+    setTimeout(() => setIsBookingOpen(true), 1000);
+  };
+
+  const barberImages: Record<string, string> = {
+    Therapon: theraponImg,
+    Panagiotis: panagiotisImg,
+    Kwstas: kwstasImg,
   };
 
   return (

@@ -20,6 +20,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <CheersAnimation />
       {USE_HASH_ROUTER ? (
         <HashRouter>
           <div className="min-h-screen flex flex-col bg-primary">
