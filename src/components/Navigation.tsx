@@ -43,6 +43,7 @@ const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
+                onClick={(e) => handleNavClick(e, item.path)}
                 className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:scale-105 ${
                   isActive(item.path) ? "text-gold" : "text-primary-foreground"
                 }`}
@@ -78,7 +79,10 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    handleNavClick(e, item.path);
+                    if (item.path !== "/book") setIsOpen(false);
+                  }}
                   className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 ${
                     isActive(item.path) ? "text-gold" : "text-primary-foreground"
                   }`}
