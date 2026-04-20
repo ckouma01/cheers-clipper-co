@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { triggerCheers } from "@/components/CheersAnimation";
 import logo from "@/assets/cheers-logo-new.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const navItems = [
     { name: "HOME", path: "/" },
@@ -16,6 +18,15 @@ const Navigation = () => {
   ];
 
   const isActive = (path: string) => location.pathname === path;
+
+  const handleNavClick = (e: React.MouseEvent, path: string) => {
+    if (path === "/book") {
+      e.preventDefault();
+      triggerCheers();
+      setIsOpen(false);
+      setTimeout(() => navigate(path), 1000);
+    }
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-transparent backdrop-blur-md border-b border-gold/20 shadow-lg">
