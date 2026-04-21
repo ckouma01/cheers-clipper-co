@@ -48,7 +48,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-primary text-primary-foreground py-24 md:py-32 overflow-hidden">
+      <section className="relative bg-primary text-primary-foreground py-12 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-secondary to-black opacity-95" />
         
         {/* Video Background */}
