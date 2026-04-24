@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,7 @@ import logo from "@/assets/cheers-logo-new.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [weddingActive, setWeddingActive] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -18,7 +19,26 @@ const Navigation = () => {
     { name: "CONTACT US", path: "/contact" },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => {
+    if (path === "/#wedding-service") return weddingActive;
+    return location.pathname === path;
+  };
+
+  // Track when the wedding section is in view to mark navbar item active
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      setWeddingActive(false);
+      return;
+    }
+    const el = document.getElementById("wedding-service");
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setWeddingActive(entry.isIntersecting),
+      { threshold: 0.25 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [location.pathname]);
 
   const scrollToWedding = () => {
     const el = document.getElementById("wedding-service");
@@ -58,18 +78,21 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={(e) => handleNavClick(e, item.path)}
-                className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:scale-105 ${
-                  isActive(item.path) ? "text-gold" : "text-primary-foreground"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const wedding = item.path === "/#wedding-service";
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={(e) => handleNavClick(e, item.path)}
+                  className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:scale-105 ${
+                    isActive(item.path) ? "text-gold" : "text-primary-foreground"
+                  } ${wedding ? "animate-weddingShine" : ""}`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
             <a
               href="https://www.instagram.com/cheers_barbershop/"
               target="_blank"
@@ -94,21 +117,24 @@ const Navigation = () => {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-gold/20 animate-in slide-in-from-top-2">
             <div className="flex flex-col gap-4 px-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={(e) => {
-                    handleNavClick(e, item.path);
-                    if (item.path !== "/book" && item.path !== "/#wedding-service") setIsOpen(false);
-                  }}
-                  className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 ${
-                    isActive(item.path) ? "text-gold" : "text-primary-foreground"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const wedding = item.path === "/#wedding-service";
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={(e) => {
+                      handleNavClick(e, item.path);
+                      if (item.path !== "/book" && item.path !== "/#wedding-service") setIsOpen(false);
+                    }}
+                    className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 ${
+                      isActive(item.path) ? "text-gold" : "text-primary-foreground"
+                    } ${wedding ? "animate-weddingShine" : ""}`}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
               <a
                 href="https://www.instagram.com/cheers_barbershop/"
                 target="_blank"

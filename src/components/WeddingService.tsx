@@ -156,7 +156,7 @@ const WeddingService = () => {
         ))}
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-full">
         {/* Header */}
         <div
           ref={headerAnim.ref}
@@ -198,8 +198,8 @@ const WeddingService = () => {
         >
           <Card className="border-2 border-gold/40 bg-black/50 backdrop-blur-sm overflow-hidden shadow-2xl shadow-gold/20">
             <CardContent className="p-0">
-              <div className="grid md:grid-cols-2">
-                <div className="relative overflow-hidden aspect-square md:aspect-auto md:min-h-[500px] group">
+              <div className="grid md:grid-cols-2 w-full">
+                <div className="relative overflow-hidden aspect-square md:aspect-auto md:min-h-[500px] group w-full">
                   <img
                     src={theraponImg}
                     alt="Therapon Constantinou - Owner & Master Wedding Barber"
@@ -220,7 +220,7 @@ const WeddingService = () => {
                   </div>
                 </div>
 
-                <div className="p-8 md:p-10 space-y-6 flex flex-col justify-center">
+                <div className="p-6 sm:p-8 md:p-10 space-y-6 flex flex-col justify-center min-w-0 break-words">
                   <p className="text-primary-foreground/85 leading-relaxed font-light">
                     {t.description}
                   </p>
@@ -355,7 +355,13 @@ const WeddingService = () => {
               mode="single"
               selected={date}
               onSelect={setDate}
-              disabled={(d) => d < new Date(new Date().setHours(0, 0, 0, 0))}
+              disabled={(d) => {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                if (d < today) return true;
+                const day = d.getDay(); // 0=Sun, 4=Thu, 6=Sat
+                return day !== 0 && day !== 4 && day !== 6;
+              }}
               initialFocus
               locale={lang === "gr" ? el : undefined}
               className="pointer-events-auto rounded-lg border border-gold/30 bg-black/60 [&_.rdp-day]:text-primary-foreground [&_.rdp-day_button:hover]:bg-gold/20 [&_.rdp-day_selected]:!bg-gold [&_.rdp-day_selected]:!text-black [&_.rdp-day_today]:bg-gold/15 [&_.rdp-day_today]:text-gold [&_.rdp-head_cell]:text-gold [&_.rdp-caption_label]:text-gold [&_.rdp-nav_button]:text-gold [&_.rdp-nav_button:hover]:bg-gold/20 [&_.rdp-day_disabled]:text-primary-foreground/30"
