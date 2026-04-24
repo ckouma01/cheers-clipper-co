@@ -117,21 +117,24 @@ const Navigation = () => {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-gold/20 animate-in slide-in-from-top-2">
             <div className="flex flex-col gap-4 px-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={(e) => {
-                    handleNavClick(e, item.path);
-                    if (item.path !== "/book" && item.path !== "/#wedding-service") setIsOpen(false);
-                  }}
-                  className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 ${
-                    isActive(item.path) ? "text-gold" : "text-primary-foreground"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const wedding = item.path === "/#wedding-service";
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={(e) => {
+                      handleNavClick(e, item.path);
+                      if (item.path !== "/book" && item.path !== "/#wedding-service") setIsOpen(false);
+                    }}
+                    className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 ${
+                      isActive(item.path) ? "text-gold" : "text-primary-foreground"
+                    } ${wedding ? "animate-weddingShine" : ""}`}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
               <a
                 href="https://www.instagram.com/cheers_barbershop/"
                 target="_blank"
