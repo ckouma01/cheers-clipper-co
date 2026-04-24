@@ -220,7 +220,7 @@ const WeddingService = () => {
                   </div>
                 </div>
 
-                <div className="p-8 md:p-10 space-y-6 flex flex-col justify-center">
+                <div className="p-6 sm:p-8 md:p-10 space-y-6 flex flex-col justify-center min-w-0 break-words">
                   <p className="text-primary-foreground/85 leading-relaxed font-light">
                     {t.description}
                   </p>
