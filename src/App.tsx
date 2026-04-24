@@ -6,6 +6,7 @@ import { BrowserRouter, HashRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import CheersAnimation from "./components/CheersAnimation";
+import WeddingAnnouncement from "./components/WeddingAnnouncement";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import BookAppointment from "./pages/BookAppointment";
