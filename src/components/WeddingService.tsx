@@ -1,17 +1,24 @@
 import { useState } from "react";
-import { Sparkles, Crown, Scissors, Calendar, Check, Image as ImageIcon, Video } from "lucide-react";
+import { format } from "date-fns";
+import { el } from "date-fns/locale";
+import { Sparkles, Crown, Scissors, Calendar as CalendarIcon, Check, Image as ImageIcon, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Calendar } from "@/components/ui/calendar";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { toast } from "sonner";
 import theraponImg from "@/assets/therapon.png";
+
+const THERAPON_PHONE = "+35796557340";
 
 const content = {
   en: {
     eyebrow: "Exclusive Offering",
-    title: "Premium Wedding Barber Packet",
+    title: "Wedding Barber Service",
     subtitle: "A once-in-a-lifetime grooming experience for your most important day",
     description:
-      "Make your wedding day truly unforgettable with our signature Premium Wedding Barber Packet — crafted exclusively by Master Barber Therapon. This bespoke experience blends timeless tradition with modern elegance, ensuring you and your closest companions look impeccable for every photograph and every moment.",
+      "Make your wedding day truly unforgettable with our signature Premium Wedding Barber Service — crafted exclusively by Owner & Master Barber Therapon. This bespoke experience blends timeless tradition with modern elegance, ensuring you and your closest companions look impeccable for every photograph and every moment.",
     availability: "Available exclusively on Thursdays, Saturdays & Sundays",
     price: "350€",
     priceLabel: "All-inclusive package",
@@ -32,20 +39,28 @@ const content = {
     ],
     barberLabel: "Crafted personally by",
     barberName: "Therapon Constantinou",
-    barberRole: "Master Barber",
+    barberRole: "Owner ◦ Master Barber",
     cta: "Book Wedding Service",
     galleryTitle: "Past Wedding Moments",
     gallerySubtitle: "A glimpse into Therapon's signature wedding experiences — more coming soon.",
     photoLabel: "Photo coming soon",
     videoLabel: "Video coming soon",
     langToggle: "Ελληνικά",
+    modalTitle: "Choose Your Wedding Date",
+    modalDesc: "Select the date of your wedding. We'll send your interest directly to Therapon.",
+    modalConfirm: "Confirm & Send to Therapon",
+    modalSelected: "Selected date:",
+    modalNoDate: "Please select a wedding date first",
+    smsSent: "Opening your messaging app to send Therapon your request…",
+    smsBody: (date: string) =>
+      `Hello Therapon! I'm interested in booking the Premium Wedding Barber Service for my wedding on ${date}. Please contact me to discuss the details. Thank you!`,
   },
   gr: {
     eyebrow: "Αποκλειστική Υπηρεσία",
-    title: "Premium Πακέτο Γάμου",
+    title: "Υπηρεσία Γάμου",
     subtitle: "Μια μοναδική εμπειρία περιποίησης για την πιο σημαντική σου μέρα",
     description:
-      "Κάνε τη μέρα του γάμου σου πραγματικά αξέχαστη με το αποκλειστικό μας Premium Πακέτο Γάμου — δημιουργημένο αποκλειστικά από τον Master Barber Θεράπων. Μια ξεχωριστή εμπειρία που συνδυάζει διαχρονική παράδοση με μοντέρνα κομψότητα, εξασφαλίζοντας ότι εσύ και οι πιο κοντινοί σου άνθρωποι θα δείχνετε άψογοι σε κάθε φωτογραφία και κάθε στιγμή.",
+      "Κάνε τη μέρα του γάμου σου πραγματικά αξέχαστη με την αποκλειστική μας Premium Υπηρεσία Γάμου — δημιουργημένη αποκλειστικά από τον Owner & Master Barber Θεράπων. Μια ξεχωριστή εμπειρία που συνδυάζει διαχρονική παράδοση με μοντέρνα κομψότητα, εξασφαλίζοντας ότι εσύ και οι πιο κοντινοί σου άνθρωποι θα δείχνετε άψογοι σε κάθε φωτογραφία και κάθε στιγμή.",
     availability: "Διαθέσιμο αποκλειστικά Πέμπτη, Σάββατο & Κυριακή",
     price: "350€",
     priceLabel: "Πλήρες πακέτο",
@@ -66,22 +81,48 @@ const content = {
     ],
     barberLabel: "Δημιουργημένο προσωπικά από τον",
     barberName: "Θεράπων Κωνσταντίνου",
-    barberRole: "Master Barber",
+    barberRole: "Owner ◦ Master Barber",
     cta: "Κλείσε Ραντεβού Γάμου",
     galleryTitle: "Στιγμές από Παλιούς Γάμους",
     gallerySubtitle: "Μια ματιά στις γαμήλιες εμπειρίες του Θεράπων — σύντομα περισσότερα.",
     photoLabel: "Φωτογραφία σύντομα",
     videoLabel: "Βίντεο σύντομα",
     langToggle: "English",
+    modalTitle: "Επίλεξε Ημερομηνία Γάμου",
+    modalDesc: "Διάλεξε την ημερομηνία του γάμου σου. Θα στείλουμε το ενδιαφέρον σου απευθείας στον Θεράπων.",
+    modalConfirm: "Επιβεβαίωση & Αποστολή",
+    modalSelected: "Επιλεγμένη ημερομηνία:",
+    modalNoDate: "Παρακαλώ επίλεξε πρώτα ημερομηνία",
+    smsSent: "Άνοιγμα της εφαρμογής μηνυμάτων για αποστολή στον Θεράπων…",
+    smsBody: (date: string) =>
+      `Γεια σου Θεράπων! Ενδιαφέρομαι να κλείσω την Premium Υπηρεσία Γάμου για τον γάμο μου στις ${date}. Παρακαλώ επικοινώνησε μαζί μου για τις λεπτομέρειες. Ευχαριστώ!`,
   },
 };
 
 const WeddingService = () => {
   const [lang, setLang] = useState<"en" | "gr">("en");
+  const [open, setOpen] = useState(false);
+  const [date, setDate] = useState<Date | undefined>(undefined);
   const t = content[lang];
   const headerAnim = useScrollAnimation();
   const cardAnim = useScrollAnimation();
   const galleryAnim = useScrollAnimation();
+
+  const handleConfirm = () => {
+    if (!date) {
+      toast.error(t.modalNoDate);
+      return;
+    }
+    const formatted =
+      lang === "gr"
+        ? format(date, "EEEE d MMMM yyyy", { locale: el })
+        : format(date, "EEEE, MMMM d, yyyy");
+    const body = encodeURIComponent(t.smsBody(formatted));
+    const smsUrl = `sms:${THERAPON_PHONE}?body=${body}`;
+    toast.success(t.smsSent);
+    window.location.href = smsUrl;
+    setTimeout(() => setOpen(false), 600);
+  };
 
   return (
     <section
@@ -96,11 +137,9 @@ const WeddingService = () => {
           style={{ animation: "pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite" }}
         />
       </div>
-      {/* Decorative gold lines */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
 
-      {/* Floating sparkles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(8)].map((_, i) => (
           <Sparkles
@@ -133,9 +172,9 @@ const WeddingService = () => {
           </div>
           <h2 className="text-4xl md:text-5xl font-sans font-bold mb-4 text-primary-foreground">
             <span className="font-script text-gold text-5xl md:text-6xl block mb-2">
-              {lang === "en" ? "Premium" : "Premium"}
+              Premium
             </span>
-            {lang === "en" ? "Wedding Barber Packet" : "Πακέτο Γάμου"}
+            {t.title}
           </h2>
           <div className="w-24 h-1 bg-gold mx-auto mb-6" />
           <p className="text-lg md:text-xl text-primary-foreground/80 font-light italic">
@@ -160,11 +199,10 @@ const WeddingService = () => {
           <Card className="border-2 border-gold/40 bg-black/50 backdrop-blur-sm overflow-hidden shadow-2xl shadow-gold/20">
             <CardContent className="p-0">
               <div className="grid md:grid-cols-2">
-                {/* Therapon image side */}
                 <div className="relative overflow-hidden aspect-square md:aspect-auto md:min-h-[500px] group">
                   <img
                     src={theraponImg}
-                    alt="Therapon Constantinou - Master Wedding Barber"
+                    alt="Therapon Constantinou - Owner & Master Wedding Barber"
                     className="w-full h-full object-cover transition-transform duration-[3000ms] group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
@@ -182,7 +220,6 @@ const WeddingService = () => {
                   </div>
                 </div>
 
-                {/* Description side */}
                 <div className="p-8 md:p-10 space-y-6 flex flex-col justify-center">
                   <p className="text-primary-foreground/85 leading-relaxed font-light">
                     {t.description}
@@ -196,7 +233,7 @@ const WeddingService = () => {
                   </div>
 
                   <div className="flex items-start gap-3 text-primary-foreground/90">
-                    <Calendar className="w-5 h-5 text-gold shrink-0 mt-0.5" />
+                    <CalendarIcon className="w-5 h-5 text-gold shrink-0 mt-0.5" />
                     <span className="font-light">{t.availability}</span>
                   </div>
 
@@ -230,17 +267,17 @@ const WeddingService = () => {
                     </ul>
                   </div>
 
-                  <a
-                    href="https://wa.me/35796557340"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="pt-4"
-                  >
-                    <Button variant="hero" size="lg" className="w-full text-base">
+                  <div className="pt-4">
+                    <Button
+                      variant="hero"
+                      size="lg"
+                      className="w-full text-base"
+                      onClick={() => setOpen(true)}
+                    >
                       <Crown className="w-5 h-5" />
                       {t.cta}
                     </Button>
-                  </a>
+                  </div>
                 </div>
               </div>
             </CardContent>
@@ -299,6 +336,55 @@ const WeddingService = () => {
           </div>
         </div>
       </div>
+
+      {/* Wedding Date Picker Modal */}
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="bg-black border-2 border-gold/50 text-primary-foreground sm:max-w-md shadow-2xl shadow-gold/30">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-sans flex items-center gap-2">
+              <Crown className="w-6 h-6 text-gold" />
+              <span className="text-primary-foreground">{t.modalTitle}</span>
+            </DialogTitle>
+            <DialogDescription className="text-primary-foreground/70 font-light italic">
+              {t.modalDesc}
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="flex justify-center py-2">
+            <Calendar
+              mode="single"
+              selected={date}
+              onSelect={setDate}
+              disabled={(d) => d < new Date(new Date().setHours(0, 0, 0, 0))}
+              initialFocus
+              locale={lang === "gr" ? el : undefined}
+              className="pointer-events-auto rounded-lg border border-gold/30 bg-black/60 [&_.rdp-day]:text-primary-foreground [&_.rdp-day_button:hover]:bg-gold/20 [&_.rdp-day_selected]:!bg-gold [&_.rdp-day_selected]:!text-black [&_.rdp-day_today]:bg-gold/15 [&_.rdp-day_today]:text-gold [&_.rdp-head_cell]:text-gold [&_.rdp-caption_label]:text-gold [&_.rdp-nav_button]:text-gold [&_.rdp-nav_button:hover]:bg-gold/20 [&_.rdp-day_disabled]:text-primary-foreground/30"
+            />
+          </div>
+
+          {date && (
+            <div className="text-center text-sm text-gold border border-gold/30 rounded-md py-2 px-3 bg-gold/5 animate-fade-in">
+              <span className="text-primary-foreground/70 mr-2">{t.modalSelected}</span>
+              <span className="font-semibold">
+                {lang === "gr"
+                  ? format(date, "EEEE d MMMM yyyy", { locale: el })
+                  : format(date, "EEEE, MMMM d, yyyy")}
+              </span>
+            </div>
+          )}
+
+          <Button
+            variant="hero"
+            size="lg"
+            onClick={handleConfirm}
+            disabled={!date}
+            className="w-full"
+          >
+            <Crown className="w-5 h-5" />
+            {t.modalConfirm}
+          </Button>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
