@@ -156,6 +156,16 @@ export default {
             transform: "scale(1)",
           },
         },
+        weddingShine: {
+          "0%, 100%": {
+            textShadow: "0 0 0px hsl(var(--gold) / 0)",
+            color: "hsl(var(--gold))",
+          },
+          "50%": {
+            textShadow: "0 0 12px hsl(var(--gold) / 0.9), 0 0 24px hsl(var(--gold) / 0.5)",
+            color: "hsl(var(--gold-light, var(--gold)))",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -166,6 +176,7 @@ export default {
         handwrite: "handwrite 2.5s ease-out forwards",
         revealText: "revealText 2.5s ease-out 0.5s forwards",
         starShine: "starShine 0.6s ease-in-out forwards",
+        weddingShine: "weddingShine 2.2s ease-in-out infinite",
       },
     },
   },
