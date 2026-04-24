@@ -100,8 +100,15 @@ const Navigation = () => {
                   to={item.path}
                   onClick={(e) => {
                     handleNavClick(e, item.path);
-                    if (item.path !== "/book") setIsOpen(false);
+                    if (item.path !== "/book" && item.path !== "/#wedding-service") setIsOpen(false);
                   }}
+                  className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 ${
+                    isActive(item.path) ? "text-gold" : "text-primary-foreground"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
                   className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 ${
                     isActive(item.path) ? "text-gold" : "text-primary-foreground"
                   }`}
