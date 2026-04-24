@@ -109,13 +109,6 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
-                  className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 ${
-                    isActive(item.path) ? "text-gold" : "text-primary-foreground"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
               <a
                 href="https://www.instagram.com/cheers_barbershop/"
                 target="_blank"
