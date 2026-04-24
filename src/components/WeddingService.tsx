@@ -198,8 +198,8 @@ const WeddingService = () => {
         >
           <Card className="border-2 border-gold/40 bg-black/50 backdrop-blur-sm overflow-hidden shadow-2xl shadow-gold/20">
             <CardContent className="p-0">
-              <div className="grid md:grid-cols-2">
-                <div className="relative overflow-hidden aspect-square md:aspect-auto md:min-h-[500px] group">
+              <div className="grid md:grid-cols-2 w-full">
+                <div className="relative overflow-hidden aspect-square md:aspect-auto md:min-h-[500px] group w-full">
                   <img
                     src={theraponImg}
                     alt="Therapon Constantinou - Owner & Master Wedding Barber"
