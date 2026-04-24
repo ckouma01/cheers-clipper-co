@@ -156,7 +156,7 @@ const WeddingService = () => {
         ))}
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-full">
         {/* Header */}
         <div
           ref={headerAnim.ref}
