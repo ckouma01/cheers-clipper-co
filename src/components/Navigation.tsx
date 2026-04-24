@@ -14,10 +14,18 @@ const Navigation = () => {
     { name: "HOME", path: "/" },
     { name: "OUR TEAM", path: "/about" },
     { name: "BOOK APPOINTMENT", path: "/book" },
+    { name: "WEDDING SERVICE", path: "/#wedding-service" },
     { name: "CONTACT US", path: "/contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
+
+  const scrollToWedding = () => {
+    const el = document.getElementById("wedding-service");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   const handleNavClick = (e: React.MouseEvent, path: string) => {
     if (path === "/book") {
@@ -25,6 +33,17 @@ const Navigation = () => {
       triggerCheers();
       setIsOpen(false);
       setTimeout(() => navigate(path), 1500);
+      return;
+    }
+    if (path === "/#wedding-service") {
+      e.preventDefault();
+      setIsOpen(false);
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(scrollToWedding, 350);
+      } else {
+        scrollToWedding();
+      }
     }
   };
 
@@ -81,7 +100,7 @@ const Navigation = () => {
                   to={item.path}
                   onClick={(e) => {
                     handleNavClick(e, item.path);
-                    if (item.path !== "/book") setIsOpen(false);
+                    if (item.path !== "/book" && item.path !== "/#wedding-service") setIsOpen(false);
                   }}
                   className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 ${
                     isActive(item.path) ? "text-gold" : "text-primary-foreground"

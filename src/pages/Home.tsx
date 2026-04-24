@@ -3,6 +3,7 @@ import { Scissors, Clock, Award, Users, HelpCircle, Sparkles, Eye } from "lucide
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Gallery from "@/components/Gallery";
+import WeddingService from "@/components/WeddingService";
 import logo from "@/assets/cheers-logo-new.png";
 import heroVideo from "@/assets/hero-video.mp4";
 import { useRef } from "react";
@@ -233,6 +234,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Wedding Service Section */}
+      <WeddingService />
 
       {/* Gallery Section */}
       <Gallery />
