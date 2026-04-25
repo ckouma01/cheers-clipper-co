@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Crown, ChevronDown, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import theraponImg from "@/assets/therapon.png";
 
 const STORAGE_KEY = "cheers_wedding_announcement_seen";
