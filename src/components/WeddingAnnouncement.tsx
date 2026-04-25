@@ -45,10 +45,20 @@ const WeddingAnnouncement = () => {
 
   const handleCheckItOut = () => {
     setOpen(false);
-    setTimeout(() => {
+    const scrollToSection = (attempts = 0) => {
       const el = document.getElementById("wedding-service");
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 200);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else if (attempts < 20) {
+        setTimeout(() => scrollToSection(attempts + 1), 100);
+      }
+    };
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => scrollToSection(), 300);
+    } else {
+      setTimeout(() => scrollToSection(), 200);
+    }
   };
 
   return (
