@@ -10,6 +10,7 @@ const STORAGE_KEY = "cheers_wedding_announcement_seen";
 const WeddingAnnouncement = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (location.pathname !== "/") return;
