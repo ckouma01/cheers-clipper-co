@@ -132,11 +132,16 @@ const Navigation = () => {
                       handleNavClick(e, item.path);
                       if (item.path !== "/book" && item.path !== "/#wedding-service") setIsOpen(false);
                     }}
-                    className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 ${
+                    className={`relative inline-flex items-center gap-2 text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 ${
                       isActive(item.path) ? "text-gold" : "text-primary-foreground"
                     } ${wedding ? "animate-weddingShine" : ""}`}
                   >
                     {item.name}
+                    {wedding && (
+                      <span className="px-1.5 py-0.5 text-[8px] font-bold tracking-wider rounded-sm bg-[#FC7303] text-white shadow-md shadow-[#FC7303]/50 animate-pulse">
+                        NEW!
+                      </span>
+                    )}
                   </Link>
                 );
               })}
