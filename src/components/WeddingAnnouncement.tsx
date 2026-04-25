@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Crown, ChevronDown, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import theraponImg from "@/assets/therapon.png";
 
 const STORAGE_KEY = "cheers_wedding_announcement_seen";
@@ -10,6 +10,7 @@ const STORAGE_KEY = "cheers_wedding_announcement_seen";
 const WeddingAnnouncement = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (location.pathname !== "/") return;
@@ -44,10 +45,20 @@ const WeddingAnnouncement = () => {
 
   const handleCheckItOut = () => {
     setOpen(false);
-    setTimeout(() => {
+    const scrollToSection = (attempts = 0) => {
       const el = document.getElementById("wedding-service");
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 200);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else if (attempts < 20) {
+        setTimeout(() => scrollToSection(attempts + 1), 100);
+      }
+    };
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => scrollToSection(), 300);
+    } else {
+      setTimeout(() => scrollToSection(), 200);
+    }
   };
 
   return (
