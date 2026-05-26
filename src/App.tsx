@@ -6,6 +6,7 @@ import { BrowserRouter, HashRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import CheersAnimation from "./components/CheersAnimation";
+import HomeServiceAnnouncement from "./components/HomeServiceAnnouncement";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import BookAppointment from "./pages/BookAppointment";
@@ -23,6 +24,7 @@ const App = () => (
       <CheersAnimation />
       {USE_HASH_ROUTER ? (
         <HashRouter>
+          <HomeServiceAnnouncement />
           <div className="min-h-screen flex flex-col bg-primary">
             <Navigation />
             <main className="flex-1">
@@ -40,6 +42,7 @@ const App = () => (
         </HashRouter>
       ) : (
         <BrowserRouter>
+          <HomeServiceAnnouncement />
           <div className="min-h-screen flex flex-col bg-primary">
             <Navigation />
             <main className="flex-1">

@@ -284,57 +284,6 @@ const WeddingService = () => {
           </Card>
         </div>
 
-        {/* Media Gallery Placeholders */}
-        <div
-          ref={galleryAnim.ref}
-          className={`max-w-6xl mx-auto mt-20 transition-all duration-[2000ms] ${
-            galleryAnim.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-          }`}
-        >
-          <div className="text-center mb-10">
-            <h3 className="text-3xl font-sans font-bold text-primary-foreground mb-3">
-              {t.galleryTitle}
-            </h3>
-            <div className="w-16 h-px bg-gold mx-auto mb-4" />
-            <p className="text-primary-foreground/60 font-light italic">{t.gallerySubtitle}</p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[...Array(4)].map((_, i) => {
-              const isVideo = i === 1 || i === 3;
-              return (
-                <div
-                  key={i}
-                  className="group relative aspect-square rounded-lg overflow-hidden border-2 border-gold/30 bg-black/40 hover:border-gold transition-all duration-500 hover:shadow-2xl hover:shadow-gold/30 hover:-translate-y-1"
-                  style={{
-                    animation: galleryAnim.isVisible
-                      ? `scale-in 0.8s ease-out ${i * 0.15}s both`
-                      : undefined,
-                  }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-gold/5" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-gold/70 group-hover:text-gold transition-colors">
-                    {isVideo ? (
-                      <Video className="w-10 h-10" strokeWidth={1.5} />
-                    ) : (
-                      <ImageIcon className="w-10 h-10" strokeWidth={1.5} />
-                    )}
-                    <span className="text-xs uppercase tracking-widest font-light">
-                      {isVideo ? t.videoLabel : t.photoLabel}
-                    </span>
-                  </div>
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <Sparkles className="absolute top-3 right-3 w-4 h-4 text-gold animate-pulse" />
-                    <Sparkles
-                      className="absolute bottom-3 left-3 w-3 h-3 text-gold animate-pulse"
-                      style={{ animationDelay: "0.5s" }}
-                    />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
       </div>
 
       {/* Wedding Date Picker Modal */}
