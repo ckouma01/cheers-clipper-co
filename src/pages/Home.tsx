@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Gallery from "@/components/Gallery";
 import WeddingService from "@/components/WeddingService";
+import HomeService from "@/components/HomeService";
 import logo from "@/assets/cheers-logo-new.png";
 import heroVideo from "@/assets/hero-video.mp4";
 import { useRef } from "react";
@@ -237,6 +238,9 @@ const Home = () => {
 
       {/* Wedding Service Section */}
       <WeddingService />
+
+      {/* Home Haircut Service Section */}
+      <HomeService />
 
       {/* Gallery Section */}
       <Gallery />
