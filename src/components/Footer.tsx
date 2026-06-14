@@ -1,6 +1,7 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/cheers-logo-new.png";
+import GitHubSyncButton from "@/components/GitHubSyncButton";
 
 const Footer = () => {
   return (
@@ -107,6 +108,9 @@ const Footer = () => {
               KoumasWeb
             </a>
           </p>
+          <div className="pt-2">
+            <GitHubSyncButton />
+          </div>
         </div>
       </div>
     </footer>
