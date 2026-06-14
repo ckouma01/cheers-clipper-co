@@ -37,6 +37,16 @@ const SocialIcons = ({ barber }: { barber: keyof typeof barberSocials }) => {
       >
         <Phone size={16} />
       </a>
+      {barber === "Panagiotis" && (
+        <Link
+          to="/panagiotis-card"
+          aria-label="Panagiotis info card"
+          onClick={(e) => e.stopPropagation()}
+          className="w-9 h-9 rounded-full bg-black/60 backdrop-blur-sm border border-gold/60 flex items-center justify-center text-gold hover:bg-gold hover:text-black transition-all duration-300"
+        >
+          <Info size={16} />
+        </Link>
+      )}
     </div>
   );
 };
