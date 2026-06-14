@@ -107,9 +107,6 @@ const Footer = () => {
               KoumasWeb
             </a>
           </p>
-          <div className="pt-2">
-            <GitHubSyncButton />
-          </div>
         </div>
       </div>
     </footer>
