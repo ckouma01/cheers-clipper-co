@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Instagram, Phone } from "lucide-react";
+import { Instagram, Phone, Info } from "lucide-react";
 import theraponImg from "@/assets/therapon.png";
 import panagiotisImg from "@/assets/panagiotis.png";
 import kwstasImg from "@/assets/kwstas.jpg";
