@@ -10,7 +10,7 @@
     // with the path preserved in the query string
     const path = window.location.pathname.slice(1);
     if (path && path !== 'index.html') {
-      window.location.replace('/?redirect=' + encodeURIComponent(path));
+      window.location.replace('./?redirect=' + encodeURIComponent(path));
     }
   </script>
 </head>
