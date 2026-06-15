@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Scissors, Clock, Award, Users, HelpCircle, Sparkles, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,15 +7,29 @@ import WeddingService from "@/components/WeddingService";
 import HomeService from "@/components/HomeService";
 import logo from "@/assets/cheers-logo-new.png";
 import heroVideo from "@/assets/hero-video.mp4";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Home = () => {
+  const location = useLocation();
   const servicesSection = useScrollAnimation();
   const whyChooseSection = useScrollAnimation();
   const ctaSection = useScrollAnimation();
   
+  useEffect(() => {
+    const hash = location.hash;
+    if (hash) {
+      const id = hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        const timer = setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 200);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [location]);
   
   
   const videoRef = useRef<HTMLVideoElement>(null);

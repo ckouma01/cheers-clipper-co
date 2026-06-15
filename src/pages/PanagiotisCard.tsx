@@ -1,8 +1,57 @@
-import { Instagram, Globe, Scissors } from "lucide-react";
+import { Instagram, Globe, Scissors, Home, Brush } from "lucide-react";
+import { Link } from "react-router-dom";
+import type { ElementType } from "react";
 import panagiotisImg from "@/assets/panagiotis.png";
 import logo from "@/assets/cheers-logo-new.png";
 
 const LIME = "#b6ed3d";
+
+const LinkButton = ({
+  href,
+  to,
+  icon: Icon,
+  children,
+  variant = "dark",
+}: {
+  href?: string;
+  to?: string;
+  icon: ElementType;
+  children: React.ReactNode;
+  variant?: "dark" | "light" | "lime";
+}) => {
+  const base =
+    "w-full flex items-center justify-center gap-3 font-semibold py-4 rounded-2xl shadow-lg active:scale-[0.98] transition-transform border-2 border-black";
+  const styles = {
+    dark: "bg-black text-white",
+    light: "bg-white text-black",
+    lime: "text-black",
+  };
+
+  const className = `${base} ${styles[variant]}`;
+  const style = variant === "lime" ? { backgroundColor: LIME } : undefined;
+
+  if (to) {
+    return (
+      <Link to={to} className={className} style={style}>
+        <Icon size={20} />
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className}
+      style={style}
+    >
+      <Icon size={20} />
+      {children}
+    </a>
+  );
+};
 
 const PanagiotisCard = () => {
   return (
@@ -10,15 +59,46 @@ const PanagiotisCard = () => {
       className="min-h-screen w-full flex flex-col items-center justify-center px-5 py-10 relative overflow-hidden"
       style={{ backgroundColor: LIME }}
     >
+      {/* Diagonal black line pattern */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.07]"
+        style={{
+          backgroundImage: `repeating-linear-gradient(
+            -45deg,
+            #000 0px,
+            #000 1px,
+            transparent 1px,
+            transparent 24px
+          )`,
+        }}
+      />
+
+      {/* Subtle dot grid */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.05]"
+        style={{
+          backgroundImage: `radial-gradient(circle, #000 1px, transparent 1px)`,
+          backgroundSize: "28px 28px",
+        }}
+      />
+
       {/* Decorative blurred circles */}
       <div
-        className="absolute -top-24 -left-24 w-72 h-72 rounded-full opacity-30 blur-3xl pointer-events-none"
+        className="absolute -top-32 -left-32 w-96 h-96 rounded-full opacity-25 blur-3xl pointer-events-none"
         style={{ backgroundColor: "#000" }}
       />
       <div
-        className="absolute -bottom-24 -right-24 w-72 h-72 rounded-full opacity-20 blur-3xl pointer-events-none"
+        className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full opacity-15 blur-3xl pointer-events-none"
+        style={{ backgroundColor: "#000" }}
+      />
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full opacity-10 blur-3xl pointer-events-none"
         style={{ backgroundColor: "#fff" }}
       />
+
+      {/* Thin orbital rings */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full border border-black/10 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full border border-black/5 pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-sm flex flex-col items-center text-center">
         {/* Profile picture */}
@@ -27,6 +107,7 @@ const PanagiotisCard = () => {
             className="absolute inset-0 rounded-full blur-xl opacity-60"
             style={{ backgroundColor: "#000" }}
           />
+          <div className="absolute inset-0 rounded-full border-2 border-black/20 scale-110" />
           <img
             src={panagiotisImg}
             alt="Panagiotis Charalambous"
@@ -39,7 +120,7 @@ const PanagiotisCard = () => {
           Panagiotis Charalambous
         </h1>
         <p className="mt-2 text-sm sm:text-base font-semibold uppercase tracking-[0.2em] text-black/70">
-          Master Barber · Cheers Barbershop
+          Master Barber · FREELANCE MARKETING AND GRAPHIC DESIGNER
         </p>
 
         {/* Cheers logo */}
@@ -52,34 +133,41 @@ const PanagiotisCard = () => {
 
         {/* Links */}
         <div className="mt-8 w-full flex flex-col gap-3">
-          <a
+          <LinkButton
+            href="https://instagram.com/pch.studio_04"
+            icon={Brush}
+            variant="dark"
+          >
+            PCH Studio
+          </LinkButton>
+
+          <LinkButton
             href="https://instagram.com/panagioths.chr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-3 bg-black text-white font-semibold py-4 rounded-2xl shadow-lg active:scale-[0.98] transition-transform"
+            icon={Instagram}
+            variant="dark"
           >
-            <Instagram size={20} />
             My Instagram
-          </a>
+          </LinkButton>
 
-          <a
+          <LinkButton
+            to="/#home-service"
+            icon={Home}
+            variant="light"
+          >
+            At Your Place — Home Haircuts
+          </LinkButton>
+
+          <LinkButton
             href="https://www.instagram.com/cheers_barbershop/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-3 bg-white text-black font-semibold py-4 rounded-2xl shadow-lg active:scale-[0.98] transition-transform border-2 border-black"
+            icon={Instagram}
+            variant="light"
           >
-            <Instagram size={20} />
             Cheers Instagram
-          </a>
+          </LinkButton>
 
-          <a
-            href="/"
-            className="w-full flex items-center justify-center gap-3 font-bold py-4 rounded-2xl shadow-lg active:scale-[0.98] transition-transform border-2 border-black"
-            style={{ backgroundColor: LIME, color: "#000" }}
-          >
-            <Globe size={20} />
+          <LinkButton href="/" icon={Globe} variant="lime">
             Visit Cheers Website
-          </a>
+          </LinkButton>
         </div>
 
         {/* Footer mark */}
