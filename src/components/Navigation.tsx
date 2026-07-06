@@ -81,7 +81,7 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => {
-              const wedding = item.path === "/#wedding-service";
+              const special = item.path === "/#home-service";
               return (
                 <Link
                   key={item.path}
@@ -89,10 +89,10 @@ const Navigation = () => {
                   onClick={(e) => handleNavClick(e, item.path)}
                   className={`relative text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:scale-105 ${
                     isActive(item.path) ? "text-gold" : "text-primary-foreground"
-                  } ${wedding ? "animate-weddingShine" : ""}`}
+                  } ${special ? "animate-weddingShine" : ""}`}
                 >
                   {item.name}
-                  {wedding && (
+                  {special && (
                     <span className="absolute -top-2 -right-5 px-1.5 py-0.5 text-[8px] font-bold tracking-wider rounded-sm bg-[#FC7303] text-white shadow-md shadow-[#FC7303]/50 animate-pulse">
                       NEW!
                     </span>
