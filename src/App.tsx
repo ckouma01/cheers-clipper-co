@@ -33,7 +33,6 @@ const AppShell = () => {
 
   return (
     <>
-    <>
       <div className="min-h-screen flex flex-col bg-primary">
         <Navigation />
         <main className="flex-1">
