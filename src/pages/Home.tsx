@@ -6,7 +6,6 @@ import Gallery from "@/components/Gallery";
 import WeddingService from "@/components/WeddingService";
 import HomeService from "@/components/HomeService";
 import logo from "@/assets/cheers-logo-new.png";
-import santaHat from "@/assets/santa-hat.png";
 import heroVideo from "@/assets/hero-video.mp4";
 import { useEffect, useRef } from "react";
 
@@ -94,18 +93,11 @@ const Home = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="relative inline-block">
-              <img
-                src={santaHat}
-                alt=""
-                className="absolute -top-12 md:-top-20 left-1/2 -translate-x-1/2 w-32 md:w-48 z-10 rotate-[-10deg]"
-              />
-              <img 
-                src={logo} 
-                alt="Cheers Barbershop" 
-                className="h-48 md:h-80 w-auto mx-auto object-contain drop-shadow-2xl"
-              />
-            </div>
+            <img 
+              src={logo} 
+              alt="Cheers Barbershop" 
+              className="h-48 md:h-80 w-auto mx-auto object-contain drop-shadow-2xl"
+            />
             
             {/* Google 5-Star Rating */}
             <a 

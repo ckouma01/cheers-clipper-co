@@ -14,12 +14,12 @@ const ChristmasLights = () => {
           const delay = (i * 0.15) % 2;
 
           return (
-            <div key={i} className="flex flex-col items-center">
+            <div key={i} className={`flex-col items-center ${i % 2 === 1 ? "hidden sm:flex" : "flex"}`}>
               {/* Wire to bulb */}
               <div className="w-[1px] h-2 bg-green-900" />
               {/* Bulb */}
               <div
-                className="w-3 h-4 rounded-full animate-twinkle"
+                className="w-2 h-3 sm:w-3 sm:h-4 rounded-full animate-twinkle"
                 style={{
                   backgroundColor: color,
                   boxShadow: `0 0 8px ${color}, 0 0 12px ${color}`,
