@@ -1,10 +1,39 @@
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Instagram } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { triggerCheers } from "@/components/CheersAnimation";
 import logo from "@/assets/christmas-logo.png";
 import ChristmasLights from "./ChristmasLights";
+
+// Instagram mark in its real brand gradient (lucide's icon is single-colour)
+const InstagramGlyph = ({ size = 24, className = "" }: { size?: number; className?: string }) => {
+  const gid = useId().replace(/[:]/g, "");
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      className={className}
+      aria-hidden="true"
+      focusable="false"
+    >
+      <defs>
+        <radialGradient id={gid} cx="0.3" cy="1.07" r="1.28">
+          <stop offset="0%" stopColor="#FDF497" />
+          <stop offset="5%" stopColor="#FDF497" />
+          <stop offset="45%" stopColor="#FD5949" />
+          <stop offset="60%" stopColor="#D6249F" />
+          <stop offset="90%" stopColor="#285AEB" />
+        </radialGradient>
+      </defs>
+      <rect x="1.5" y="1.5" width="21" height="21" rx="6.2" fill={`url(#${gid})`} />
+      <rect x="6" y="6" width="12" height="12" rx="3.6" fill="none" stroke="#FFFFFF" strokeWidth="1.9" />
+      <circle cx="12" cy="12" r="3.1" fill="none" stroke="#FFFFFF" strokeWidth="1.9" />
+      <circle cx="16.5" cy="7.5" r="1.15" fill="#FFFFFF" />
+    </svg>
+  );
+};
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -97,10 +126,10 @@ const Navigation = () => {
               href="https://www.instagram.com/cheers_barbershop/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary-foreground hover:text-gold transition-all duration-300 hover:scale-110"
+              className="inline-flex transition-all duration-300 hover:scale-110 hover:brightness-110 drop-shadow-[0_2px_8px_rgba(214,36,159,0.45)]"
               aria-label="Visit our Instagram"
             >
-              <Instagram size={24} />
+              <InstagramGlyph size={26} />
             </a>
           </div>
 
@@ -137,9 +166,9 @@ const Navigation = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 text-primary-foreground flex items-center gap-2"
+                className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide transition-all duration-300 hover:translate-x-2 text-primary-foreground"
               >
-                <Instagram size={20} />
+                <InstagramGlyph size={22} className="drop-shadow-[0_2px_8px_rgba(214,36,159,0.45)]" />
                 INSTAGRAM
               </a>
             </div>
