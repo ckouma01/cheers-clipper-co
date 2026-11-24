@@ -3,7 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { triggerCheers } from "@/components/CheersAnimation";
-import logo from "@/assets/cheers-logo-new.png";
+import logo from "@/assets/christmas-logo.png";
+import ChristmasLights from "./ChristmasLights";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,7 +71,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-transparent backdrop-blur-md border-b border-gold/20 shadow-lg">
+    <nav className="sticky top-0 z-50 bg-transparent backdrop-blur-md border-b border-gold/20 shadow-lg relative">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -80,26 +81,18 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => {
-              const special = item.path === "/#home-service";
-              return (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={(e) => handleNavClick(e, item.path)}
-                  className={`relative text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:scale-105 ${
-                    isActive(item.path) ? "text-gold" : "text-primary-foreground"
-                  }`}
-                >
-                  {item.name}
-                  {special && (
-                    <span className="absolute -top-2 -right-5 px-1.5 py-0.5 text-[8px] font-bold tracking-wider rounded-sm bg-[#FC7303] text-white shadow-md shadow-[#FC7303]/50 animate-pulse">
-                      NEW!
-                    </span>
-                  )}
-                </Link>
-              );
-            })}
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={(e) => handleNavClick(e, item.path)}
+                className={`text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:scale-105 ${
+                  isActive(item.path) ? "text-gold" : "text-primary-foreground"
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
             <a
               href="https://www.instagram.com/cheers_barbershop/"
               target="_blank"
@@ -124,29 +117,21 @@ const Navigation = () => {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-gold/20 animate-in slide-in-from-top-2">
             <div className="flex flex-col gap-4 px-2">
-              {navItems.map((item) => {
-                const special = item.path === "/#home-service";
-                return (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    onClick={(e) => {
-                      handleNavClick(e, item.path);
-                      if (item.path !== "/book" && item.path !== "/#wedding-service" && item.path !== "/#home-service") setIsOpen(false);
-                    }}
-                    className={`relative inline-flex items-center gap-2 text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 ${
-                      isActive(item.path) ? "text-gold" : "text-primary-foreground"
-                    }`}
-                  >
-                    {item.name}
-                    {special && (
-                      <span className="px-1.5 py-0.5 text-[8px] font-bold tracking-wider rounded-sm bg-[#FC7303] text-white shadow-md shadow-[#FC7303]/50 animate-pulse">
-                        NEW!
-                      </span>
-                    )}
-                  </Link>
-                );
-              })}
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={(e) => {
+                    handleNavClick(e, item.path);
+                    if (item.path !== "/book" && item.path !== "/#wedding-service" && item.path !== "/#home-service") setIsOpen(false);
+                  }}
+                  className={`inline-flex items-center gap-2 text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 ${
+                    isActive(item.path) ? "text-gold" : "text-primary-foreground"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
               <a
                 href="https://www.instagram.com/cheers_barbershop/"
                 target="_blank"
@@ -161,6 +146,7 @@ const Navigation = () => {
           </div>
         )}
       </div>
+      <ChristmasLights />
     </nav>
   );
 };
