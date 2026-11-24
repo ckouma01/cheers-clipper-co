@@ -89,7 +89,7 @@ const Navigation = () => {
                   onClick={(e) => handleNavClick(e, item.path)}
                   className={`relative text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:scale-105 ${
                     isActive(item.path) ? "text-gold" : "text-primary-foreground"
-                  } ${special ? "animate-weddingShine" : ""}`}
+                  }`}
                 >
                   {item.name}
                   {special && (
@@ -136,7 +136,7 @@ const Navigation = () => {
                     }}
                     className={`relative inline-flex items-center gap-2 text-sm font-semibold tracking-wide transition-all duration-300 hover:text-gold hover:translate-x-2 ${
                       isActive(item.path) ? "text-gold" : "text-primary-foreground"
-                    } ${special ? "animate-weddingShine" : ""}`}
+                    }`}
                   >
                     {item.name}
                     {special && (
