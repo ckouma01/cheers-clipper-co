@@ -6,7 +6,6 @@ import { BrowserRouter, HashRouter, Routes, Route, useLocation } from "react-rou
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import CheersAnimation from "./components/CheersAnimation";
-import Snowflakes from "./components/Snowflakes";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -35,8 +34,6 @@ const AppShell = () => {
   return (
     <>
       <div className="min-h-screen flex flex-col bg-primary">
-        <div className="christmas-lights" />
-        <Snowflakes />
         <Navigation />
         <main className="flex-1">
           <Routes>
